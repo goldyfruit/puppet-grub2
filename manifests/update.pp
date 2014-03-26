@@ -1,8 +1,8 @@
 class grub2::update inherits grub2 {
 
-  if $update_grub {
+  if $grub2::update_grub {
     exec { 'Update GRUB':
-      command => $update_binary,
+      command => $grub2::update_binary,
     }
   }
 

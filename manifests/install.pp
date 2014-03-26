@@ -1,14 +1,13 @@
 class grub2::install inherits grub2 {
 
-  if $install_grub {
-    package { 'grub2':
-      ensure => $::package_ensure,
-      name   => $::package_name,
+  if $grub2::install_grub {
+    package { $grub2::package_name:
+      ensure => $grub2::package_ensure,
     }
 
-    if $device_install != '' {
+    if $grub2::device_install != '' {
       exec { 'Install GRUB':
-        command => "${install_binary} ${device_install}",
+        command => "${grub2::install_binary} ${grub2::device_install}",
       }
     }
   }
