@@ -116,6 +116,8 @@ class grub2 (
   $disable_uuid          = $grub2::params::disable_uuid,
   $distributor           = $grub2::params::distributor,
   $gfxmode               = $grub2::params::gfxmode,
+  $hidden_timeout        = $grub2::params::hidden_timeout,
+  $hidden_timeout_quiet  = $grub2::params::hidden_timeout_quiet,
   $install_binary        = $grub2::params::install_binary,
   $install_grub          = $grub2::params::install_grub,
   $package_ensure        = $grub2::params::package_ensure,
@@ -141,6 +143,8 @@ class grub2 (
   validate_bool($disable_uuid)
   validate_string($distributor)
   validate_string($gfxmode)
+  validate_string($hidden_timeout)
+  validate_string($hidden_timeout_quiet)
   validate_string($install_binary)
   validate_bool($install_grub)
   validate_string($package_ensure)

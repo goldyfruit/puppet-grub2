@@ -9,6 +9,8 @@ class grub2::params {
   $disable_uuid          = false
   $disable_recovery      = false
   $gfxmode               = ''
+  $hidden_timeout        = undef
+  $hidden_timeout_quiet  = undef
   $install_grub          = false
   $package_ensure        = 'present'
   $serial_command        = ''
