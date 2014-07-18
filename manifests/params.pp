@@ -20,7 +20,7 @@ class grub2::params {
   case $::osfamily {
     'Debian': {
       $config_file       = '/etc/default/grub'
-      $distributor       = 'Debian'
+      $distributor       = 'lsb_release -i -s 2> /dev/null || echo Debian'
       $install_binary    = '/usr/sbin/grub-install'
       $package_name      = [ 'grub-pc', 'grub-common' ]
       $update_binary     = '/usr/sbin/update-grub'
