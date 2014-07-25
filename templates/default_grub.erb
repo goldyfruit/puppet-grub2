@@ -3,6 +3,8 @@
 
 GRUB_DEFAULT=<%= @default_entry %>
 GRUB_TIMEOUT=<%= @timeout %>
+<% if @hidden_timeout != nil -%>GRUB_HIDDEN_TIMEOUT=<%= @hidden_timeout %><% end -%>
+<% if @hidden_timeout_quiet != nil -%>GRUB_HIDDEN_TIMEOUT_QUIET="<%= @hidden_timeout_quiet %>"<% end -%>
 GRUB_DISTRIBUTOR=<%= @distributor %>
 <% if !@cmdline_linux_default.empty? -%>
 GRUB_CMDLINE_LINUX_DEFAULT="<%= @cmdline_linux_default %>"
