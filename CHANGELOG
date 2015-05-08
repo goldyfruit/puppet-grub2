@@ -4,6 +4,7 @@
   - Add GRUB_DISABLE_SUBMENU option
   - Fix update_grub always triggered issue: https://github.com/goldyfruit/puppet-grub2/issues/5
   - Fix some typos and make it compliant with puppet-lint
+  - Replace Puppet Modulefile by metadata.json
 
 2014-03-03  Gaetan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.1
   - Initial Commit
