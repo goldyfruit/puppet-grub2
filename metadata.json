@@ -1,0 +1,14 @@
+{
+  "name": "goldyfruit-grub2",
+  "version": "0.0.2",
+  "author": "goldyfruit",
+  "summary": "GRUB 2 module for Puppet",
+  "license": "Apache License, Version 2.0",
+  "source": "https://github.com/goldyfruit/puppet-grub2",
+  "project_page": "https://github.com/goldyfruit/puppet-grub2/issues",
+  "issues_url": "https://github.com/goldyfruit/puppet-grub2/issues",
+  "description": "This module manages GRUB 2 bootloader",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0"}
+  ]
+}

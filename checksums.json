@@ -1,0 +1,16 @@
+{
+  "CHANGELOG": "52d359aff15f5c627703f03e5f60c8a4",
+  "LICENSE": "d2794c0df5b907fdace235a619d80314",
+  "Modulefile": "9c08a0b5c69830707e87dbdf86cf04a4",
+  "README.md": "c1ef402efbb5ea27f83d7b223f09a354",
+  "Rakefile": "0d5ee4fc6bfd9b7835d7cb633accfc41",
+  "manifests/config.pp": "88f503d4aadb205d756833f862cfac19",
+  "manifests/init.pp": "ea6ae9c87a16b534250aaa038aa81516",
+  "manifests/install.pp": "fe3d87609573902cd13190b5dbe73b83",
+  "manifests/params.pp": "ce579269014e0fd250a656395b6cf86e",
+  "manifests/update.pp": "e2284e4e1450732c0a49938b0f103ee2",
+  "metadata.json": "7d5d711eeacf1272938266fee7d05b02",
+  "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+  "templates/default_grub.erb": "a79bd7a9bfde5f35ff41d57ba0624390",
+  "tests/init.pp": "520b6a5c03700b3c146df0c529a57f95"
+}
