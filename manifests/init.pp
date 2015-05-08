@@ -41,8 +41,16 @@
 #   BOOL : false
 #
 # [*gfxmode*]
-#   Define which resolution shoule be used if VBE is used
+#   Define which resolution should be used if VBE is used
 #   STRING : Empty by default
+#
+# [*hidden_timeout*]
+#   Define how long (in seconds) grub should wait for a user to enter the menu
+#   STRING : undef
+#
+# [*hidden_timeout_quiet*]
+#   Define if the hidden timeout is quiet or not
+#   BOOL : undef
 #
 # [*install_grub*]
 #   Install the GRUB packages and install GRUB in the MBR
@@ -61,7 +69,7 @@
 #   STRING : Empty by default
 #
 # [*timeout*]
-#   Define how many time (in second) that the menu should appears
+#   Define how long (in seconds) that the menu should appear
 #   STRING : 5
 #
 # [*tune*]
@@ -121,6 +129,8 @@ class grub2 (
   $disable_uuid          = $grub2::params::disable_uuid,
   $distributor           = $grub2::params::distributor,
   $gfxmode               = $grub2::params::gfxmode,
+  $hidden_timeout        = $grub2::params::hidden_timeout,
+  $hidden_timeout_quiet  = $grub2::params::hidden_timeout_quiet,
   $install_binary        = $grub2::params::install_binary,
   $install_grub          = $grub2::params::install_grub,
   $package_ensure        = $grub2::params::package_ensure,
@@ -145,6 +155,8 @@ class grub2 (
   validate_bool($disable_uuid)
   validate_string($distributor)
   validate_string($gfxmode)
+  validate_string($hidden_timeout)
+  validate_string($hidden_timeout_quiet)
   validate_string($install_binary)
   validate_bool($install_grub)
   validate_string($package_ensure)
