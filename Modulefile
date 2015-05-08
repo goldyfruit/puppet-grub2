@@ -1,5 +1,5 @@
 name    'goldyfruit-grub2'
-version '0.0.1'
+version '0.0.2'
 source 'https://github.com/goldyfruit/puppet-grub2'
 author 'goldyfruit'
 license 'Apache License, Version 2.0'

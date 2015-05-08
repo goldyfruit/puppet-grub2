@@ -1,2 +1,8 @@
-2014-03-03  Gaetan Trellu - goldyfruit <gaetan.trellu@incloudus..com> 0.0.1
-  * Initial Commit
+2015-08-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.2
+  - Redhat distribution are now supported
+  - Add GRUB_DISABLE_SUBMENU option
+  - Fix update_grub always triggered issue: https://github.com/goldyfruit/puppet-grub2/issues/5
+  - Fix some typos and make it compliant with puppet-lint
+
+2014-03-03  Gaetan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.1
+  - Initial Commit

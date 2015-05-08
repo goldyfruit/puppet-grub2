@@ -37,17 +37,13 @@ This module manages GRUB 2 bootloader
 - Define if GRUB should display the recovery entry in the menu
 - **BOOL** : *false*
 
+#### disable_submenu
+- Define if GRUB should display the submenu
+- **BOOL** : *false*
+
 #### gfxmode
-- Define which resolution should be used if VBE is used
+- Define which resolution shoule be used if VBE is used
 - **STRING** : *Empty by default*
-
-#### hidden_timeout
-- Define how long (in seconds) grub should wait for a user to enter the menu
-- **STRING** : *Not present in config file by default*
-
-#### hidden_timeout_quiet
-- Define if the hidden timeout is quiet or not
-- **BOOL** : *Not present in config file unless explicitly defined with true or false* 
 
 #### install_grub
 - Install the GRUB packages and install GRUB in the MBR
@@ -66,7 +62,7 @@ This module manages GRUB 2 bootloader
 - **STRING** : *Empty by default*
 
 #### timeout
-- Define how long (in seconds) the menu should appear
+- Define how many time (in second) that the menu should appears
 - **STRING** : *5*
 
 #### tune
@@ -91,6 +87,4 @@ This module manages GRUB 2 bootloader
       disable_recovery          => true,
       tune                      => '480 440 1',
       device_install            => '/dev/sda',
-      hidden_timeout            => 0,
-      hidden_timeout_quiet      => false,
     }

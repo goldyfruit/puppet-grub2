@@ -36,6 +36,10 @@
 #   Define if GRUB should display the recovery entry in the menu
 #   BOOL : false
 #
+# [*disable_submenu*]
+#   Define if GRUB should use the submenu
+#   BOOL : false
+#
 # [*gfxmode*]
 #   Define which resolution shoule be used if VBE is used
 #   STRING : Empty by default
@@ -90,7 +94,7 @@
 #
 # === Copyright
 #
-# Copyright 2014 Gaetan Trellu
+# Copyright 2014-2015 Gaetan Trellu
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -113,11 +117,10 @@ class grub2 (
   $default_entry         = $grub2::params::default_entry,
   $device_install        = $grub2::params::device_install,
   $disable_recovery      = $grub2::params::disable_recovery,
+  $disable_submenu       = $grub2::params::disable_submenu,
   $disable_uuid          = $grub2::params::disable_uuid,
   $distributor           = $grub2::params::distributor,
   $gfxmode               = $grub2::params::gfxmode,
-  $hidden_timeout        = $grub2::params::hidden_timeout,
-  $hidden_timeout_quiet  = $grub2::params::hidden_timeout_quiet,
   $install_binary        = $grub2::params::install_binary,
   $install_grub          = $grub2::params::install_grub,
   $package_ensure        = $grub2::params::package_ensure,
@@ -130,8 +133,6 @@ class grub2 (
   $update_grub           = $grub2::params::update_grub,
 ) inherits grub2::params {
 
-  include stdlib
-
   validate_string($badram)
   validate_string($cmdline_linux)
   validate_string($cmdline_linux_default)
@@ -140,11 +141,10 @@ class grub2 (
   validate_string($default_entry)
   validate_string($device_install)
   validate_bool($disable_recovery)
+  validate_bool($disable_submenu)
   validate_bool($disable_uuid)
   validate_string($distributor)
   validate_string($gfxmode)
-  validate_string($hidden_timeout)
-  validate_string($hidden_timeout_quiet)
   validate_string($install_binary)
   validate_bool($install_grub)
   validate_string($package_ensure)

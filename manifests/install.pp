@@ -1,3 +1,4 @@
+# class: grub2::install: See README for documentation
 class grub2::install inherits grub2 {
 
   if $grub2::install_grub {
