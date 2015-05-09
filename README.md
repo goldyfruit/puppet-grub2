@@ -1,6 +1,10 @@
 puppet-grub2
 ============
 
+[![Build Status](https://travis-ci.org/goldyfruit/puppet-grub2.svg?branch=master)](https://travis-ci.org/goldyfruit/puppet-grub2)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/goldyfruit/grub2.svg)](https://forge.puppetlabs.com/goldyfruit/grub2)
+[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 This module manages GRUB 2 bootloader
 
 ## Parameters
