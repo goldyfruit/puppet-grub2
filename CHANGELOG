@@ -1,6 +1,7 @@
 2015-08-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.3
+  - Add GRUB_HIDDEN_TIMEOUT and GRUB_HIDDEN_TIMEOUT_QUIET options
   - Replace Puppet Modulefile by metadata.json
-  - Make Puppet module compliant with Lint and Parser
+  - Make Puppet module compliant with Lint, Parser and Travis
 
 2015-08-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.2
   - Redhat distribution are now supported
