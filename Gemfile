@@ -1,23 +1,39 @@
-source 'https://rubygems.org'
+source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
-group :development, :test do
-  gem 'puppetlabs_spec_helper', :require => false
-  gem 'rspec-puppet', '~> 2.1.0', :require => false
+def location_for(place, fake_version = nil)
+  if place =~ /^(git:[^#]*)#(.*)/
+    [fake_version, { :git => $1, :branch => $2, :require => false }].compact
+  elsif place =~ /^file:\/\/(.*)/
+    ['>= 0', { :path => File.expand_path($1), :require => false }]
+  else
+    [place, { :require => false }]
+  end
+end
 
-  gem 'puppet-lint', '~> 1.1'
-  gem 'puppet-lint-param-docs', '1.1.0'
-  gem 'puppet-lint-absolute_classname-check'
-  gem 'puppet-lint-absolute_template_path'
-  gem 'puppet-lint-trailing_newline-check'
-  # Puppet 4.x related lint checks
-  gem 'puppet-lint-unquoted_string-check'
-  gem 'puppet-lint-leading_zero-check'
-  gem 'puppet-lint-variable_contains_upcase'
-  gem 'puppet-lint-numericvariable'
+group :development, :unit_tests do
+  gem 'rspec-core', '3.1.7',     :require => false
+  gem 'puppetlabs_spec_helper',  :require => false
+  gem 'simplecov',               :require => false
+  gem 'puppet_facts',            :require => false
+  gem 'json',                    :require => false
+end
 
-  gem 'beaker-rspec', '~> 2.2.4', :require => false
-  gem 'json'
-  gem 'webmock'
+group :system_tests do
+  if beaker_version = ENV['BEAKER_VERSION']
+    gem 'beaker', *location_for(beaker_version)
+  end
+  if beaker_rspec_version = ENV['BEAKER_RSPEC_VERSION']
+    gem 'beaker-rspec', *location_for(beaker_rspec_version)
+  else
+    gem 'beaker-rspec',  :require => false
+  end
+  gem 'serverspec',    :require => false
+end
+
+if facterversion = ENV['FACTER_GEM_VERSION']
+  gem 'facter', facterversion, :require => false
+else
+  gem 'facter', :require => false
 end
 
 if puppetversion = ENV['PUPPET_GEM_VERSION']
@@ -25,3 +41,5 @@ if puppetversion = ENV['PUPPET_GEM_VERSION']
 else
   gem 'puppet', :require => false
 end
+
+# vim:ft=ruby
