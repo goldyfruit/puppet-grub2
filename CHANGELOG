@@ -1,3 +1,6 @@
+2015-10-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.4
+  - This version fix an issue on the Puppet Forge, the module is not download as the lastest version
+
 2015-08-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.3
   - Add GRUB_HIDDEN_TIMEOUT and GRUB_HIDDEN_TIMEOUT_QUIET options
   - Replace Puppet Modulefile by metadata.json
