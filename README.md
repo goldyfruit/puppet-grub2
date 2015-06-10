@@ -102,3 +102,10 @@ This module manages GRUB 2 bootloader
       hidden_timeout            => 0,
       hidden_timeout_quiet      => false,
     }
+
+### Hiera support
+
+This module also supports the configuration of the parameters it exposes
+using Hiera. You can do this by namespacing around `grub2`. For instance, to
+set the value of `timeout` to `10`, you would use `grub2::timeout: 10` in
+your Hiera files.
