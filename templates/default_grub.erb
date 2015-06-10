@@ -71,3 +71,9 @@ GRUB_DISABLE_SUBMENU="true"
 GRUB_INIT_TUNE="<%= @tune %>"
 <% else %>#GRUB_INIT_TUNE="480 440 1"
 <% end -%>
+
+# Uncomment to set Xen boot parameters
+<% if !@cmdline_xen.empty? -%>
+GRUB_CMDLINE_XEN="<%= @cmdline_xen %>"
+<% else %>#GRUB_CMDLINE_XEN="dom0_mem=1024M,max:1024M"
+<% end -%>

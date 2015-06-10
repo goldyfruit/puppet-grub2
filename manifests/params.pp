@@ -5,6 +5,7 @@ class grub2::params {
   $config_template       = 'grub2/default_grub.erb'
   $cmdline_linux         = ''
   $cmdline_linux_default = ''
+  $cmdline_xen           = ''
   $default_entry         = 0
   $device_install        = ''
   $disable_recovery      = false

@@ -25,6 +25,10 @@ This module manages GRUB 2 bootloader
 - Arguments passed to the kernel
 - **STRING** : *Empty by default*
 
+#### cmdline_xen
+- Arguments passed to Xen
+- **STRING** : *Empty by default*
+
 #### default_entry
 - Define on which kernel the system will boot
 - **STRING** : *0*

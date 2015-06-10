@@ -20,6 +20,10 @@
 #   Arguments passed to the kernel
 #   STRING : Empty by default
 #
+# [*cmdline_xen*]
+#   Arguments passed to Xen
+#   STRING : Empty by default
+#
 # [*default_entry*]
 #   Define on which kernel the system will boot
 #   STRING : 0
@@ -125,6 +129,7 @@ class grub2 (
   $badram                = $grub2::params::badram,
   $cmdline_linux         = $grub2::params::cmdline_linux,
   $cmdline_linux_default = $grub2::params::cmdline_linux_default,
+  $cmdline_xen           = $grub2::params::cmdline_xen,
   $config_file           = $grub2::params::config_file,
   $config_template       = $grub2::params::config_template,
   $default_entry         = $grub2::params::default_entry,
@@ -152,6 +157,7 @@ class grub2 (
   validate_string($badram)
   validate_string($cmdline_linux)
   validate_string($cmdline_linux_default)
+  validate_string($cmdline_xen)
   validate_absolute_path($config_file)
   validate_string($config_template)
   validate_string($default_entry)
