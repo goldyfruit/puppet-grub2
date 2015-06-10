@@ -26,7 +26,7 @@
 #
 # [*default_entry*]
 #   Define on which kernel the system will boot
-#   STRING : 0
+#   INTEGER : 0
 #
 # [*device_install*]
 #   Define on which hard drive the MBR will be write
@@ -79,7 +79,7 @@
 #
 # [*timeout*]
 #   Define how long (in seconds) that the menu should appear
-#   STRING : 5
+#   INTEGER : 5
 #
 # [*tune*]
 #   Define if GRUB should make a beep when he starts
@@ -160,7 +160,7 @@ class grub2 (
   validate_string($cmdline_xen)
   validate_absolute_path($config_file)
   validate_string($config_template)
-  validate_string($default_entry)
+  validate_integer($default_entry)
   validate_string($device_install)
   validate_bool($disable_recovery)
   validate_bool($disable_submenu)
@@ -176,7 +176,7 @@ class grub2 (
   validate_integer($recordfail_timeout)
   validate_string($serial_command)
   validate_string($terminal)
-  validate_string($timeout)
+  validate_integer($timeout)
   validate_string($tune)
   validate_string($update_binary)
   validate_bool($update_grub)

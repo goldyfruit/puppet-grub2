@@ -31,7 +31,7 @@ This module manages GRUB 2 bootloader
 
 #### default_entry
 - Define on which kernel the system will boot
-- **STRING** : *0*
+- **INTEGER** : *0*
 
 #### device_install
 - Define on which hard drive the MBR will be write
@@ -84,7 +84,7 @@ This module manages GRUB 2 bootloader
 
 #### timeout
 - Define how long (in seconds) that the menu should appear
-- **STRING** : *5*
+- **INTEGER** : *5*
 
 #### tune
 - Define if GRUB should make a beep when he starts
