@@ -1,13 +1,13 @@
 {
   "name": "goldyfruit-grub2",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "goldyfruit",
-  "summary": "GRUB 2 module for Puppet",
+  "summary": "Puppet module for managing GRUB2,
   "license": "Apache-2.0",
   "source": "git://github.com/goldyfruit/puppet-grub2.git",
   "project_page": "https://github.com/goldyfruit/puppet-grub2",
   "issues_url": "https://github.com/goldyfruit/puppet-grub2/issues",
-  "description": "This module manages GRUB 2 bootloader",
+  "description": "Puppet module for managing GRUB2",
   "operatingsystem_support": [
     {"operatingsystem": "RedHat"},
     {"operatingsystem": "Debian"},
