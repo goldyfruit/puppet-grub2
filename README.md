@@ -65,6 +65,11 @@ This module manages GRUB 2 bootloader
 - Puppet stuff, define in which state should be the GRUB packages
 - **STRING** : *'present'*
 
+####  recordfail_timeout
+- Set default timeout value for GRUB2.
+  Useful to stop headless machines stalling during boot.
+- **STRING** : *Empty by default*
+
 ####  serial_command
 - Set settings for the serial console
 - **STRING** : *Empty by default*
