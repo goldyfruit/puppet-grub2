@@ -16,7 +16,7 @@ class grub2::params {
   $hidden_timeout_quiet  = undef
   $install_grub          = false
   $package_ensure        = 'present'
-  $recordfail_timeout    = undef
+  $recordfail_timeout    = 5
   $serial_command        = ''
   $terminal              = ''
   $timeout               = 5
