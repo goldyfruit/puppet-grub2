@@ -1,3 +1,6 @@
+2015-10-06  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.6
+  - Fix default value for recordfail_timeout
+
 2015-10-06  Andrew Langhorn - ajlanghorn <andrew@ajlanghorn.com> 0.0.5
             Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
             Teran McKinney <sega01@go-beyond.org>

@@ -6,7 +6,7 @@
   "manifests/config.pp": "88f503d4aadb205d756833f862cfac19",
   "manifests/init.pp": "2a72971cc7a46980fef920db739d5d52",
   "manifests/install.pp": "fe3d87609573902cd13190b5dbe73b83",
-  "manifests/params.pp": "99af855fd5746da1e26448a755ec9519",
+  "manifests/params.pp": "26f0a086104cd787a6d2b89751a5691e",
   "manifests/update.pp": "e2284e4e1450732c0a49938b0f103ee2",
   "metadata.json": "b2b44c99e86f7d7d31f9bdadcfa57a48",
   "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
