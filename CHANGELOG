@@ -1,5 +1,10 @@
 2015-10-06  Andrew Langhorn - ajlanghorn <andrew@ajlanghorn.com> 0.0.5
+            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+            Teran McKinney <sega01@go-beyond.org>
   - Add GRUB_RECORDFAIL_TIMEOUT options
+  - Add GRUB_CMDLINE_XEN options
+  - Update metadata.json about the minimum stdlib version
+  - Update documentation about Hiera usage and GRUB_RECORDFAIL_TIMEOUT example
 
 2015-10-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.4
   - This version fix an issue on the Puppet Forge, the module is not download as the lastest version

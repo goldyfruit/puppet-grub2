@@ -110,6 +110,7 @@ This module manages GRUB 2 bootloader
       device_install            => '/dev/sda',
       hidden_timeout            => 0,
       hidden_timeout_quiet      => false,
+      recordfail_timeout        => 5,
     }
 
 ### Hiera support
