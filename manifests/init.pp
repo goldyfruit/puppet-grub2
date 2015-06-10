@@ -60,6 +60,11 @@
 #   Puppet stuff, define in which state should be the GRUB packages
 #   STRING : 'present'
 #
+# [*recordfail_timeout*]
+#   Set default timeout value for GRUB2.
+#   Without this set, headless machines may stall during boot.
+#   STRING : undef
+#
 # [*serial_command*]
 #   Set settings for the serial console
 #   STRING : Empty by default
@@ -135,6 +140,7 @@ class grub2 (
   $install_grub          = $grub2::params::install_grub,
   $package_ensure        = $grub2::params::package_ensure,
   $package_name          = $grub2::params::package_name,
+  $recordfail_timeout    = $grub2::params::recordfail_timeout,
   $serial_command        = $grub2::params::serial_command,
   $terminal              = $grub2::params::terminal,
   $timeout               = $grub2::params::timeout,
@@ -161,6 +167,7 @@ class grub2 (
   validate_bool($install_grub)
   validate_string($package_ensure)
   validate_array($package_name)
+  validate_integer($recordfail_timeout)
   validate_string($serial_command)
   validate_string($terminal)
   validate_string($timeout)

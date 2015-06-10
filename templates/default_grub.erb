@@ -18,6 +18,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="<%= @cmdline_linux_default %>"
 GRUB_CMDLINE_LINUX="<%= @cmdline_linux %>"
 <% else %>GRUB_CMDLINE_LINUX=""
 <% end -%>
+<% if @recordfail_timeout != nil -%>
+GRUB_RECORDFAIL_TIMEOUT="<%= @recordfail_timeout %>"
+<% end -%>
 
 # Uncomment to enable BadRAM filtering, modify to suit your needs
 # This works with Linux (no patch required) and with any kernel that obtains

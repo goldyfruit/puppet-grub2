@@ -1,3 +1,6 @@
+2015-10-06  Andrew Langhorn - ajlanghorn <andrew@ajlanghorn.com> 0.0.5
+  - Add GRUB_RECORDFAIL_TIMEOUT options
+
 2015-10-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.4
   - This version fix an issue on the Puppet Forge, the module is not download as the lastest version
 
