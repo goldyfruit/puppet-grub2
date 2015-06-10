@@ -72,7 +72,7 @@ This module manages GRUB 2 bootloader
 ####  recordfail_timeout
 - Set default timeout value for GRUB2.
   Useful to stop headless machines stalling during boot.
-- **STRING** : *Empty by default*
+- **INTEGER** : *Empty by default*
 
 ####  serial_command
 - Set settings for the serial console

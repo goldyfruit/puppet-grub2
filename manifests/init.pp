@@ -67,7 +67,7 @@
 # [*recordfail_timeout*]
 #   Set default timeout value for GRUB2.
 #   Without this set, headless machines may stall during boot.
-#   STRING : undef
+#   INTEGER : undef
 #
 # [*serial_command*]
 #   Set settings for the serial console
