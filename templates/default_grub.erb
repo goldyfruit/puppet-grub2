@@ -37,7 +37,7 @@ GRUB_TERMINAL="<%= @terminal %>"
 <% end -%>
 <% if !@serial_command.empty? -%>
 GRUB_SERIAL_COMMAND="<%= @serial_command %>"
-<% else %>#GRUB_SERIAL_COMMAND=""
+<% else %>
 <% end -%>
 
 # The resolution used on graphical terminal
