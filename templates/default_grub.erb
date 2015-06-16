@@ -53,16 +53,12 @@ GRUB_DISABLE_LINUX_UUID="true"
 <% else %>#GRUB_DISABLE_LINUX_UUID="true"
 <% end -%>
 
-# Uncomment to disable generation of recovery mode menu entries
 <% if @disable_recovery -%>
 GRUB_DISABLE_RECOVERY="true"
-<% else %>#GRUB_DISABLE_RECOVERY="true"
 <% end -%>
 
-# Uncomment to disable generation of submenu
 <% if @disable_submenu -%>
 GRUB_DISABLE_SUBMENU="true"
-<% else %>#GRUB_DISABLE_RECOVERY="true"
 <% end -%>
 
 # Uncomment to get a beep at grub start
