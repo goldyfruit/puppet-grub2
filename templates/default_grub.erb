@@ -37,7 +37,6 @@ GRUB_TERMINAL="<%= @terminal %>"
 <% end -%>
 <% if !@serial_command.empty? -%>
 GRUB_SERIAL_COMMAND="<%= @serial_command %>"
-<% else %>#GRUB_SERIAL_COMMAND=""
 <% end -%>
 
 # The resolution used on graphical terminal
@@ -54,16 +53,12 @@ GRUB_DISABLE_LINUX_UUID="true"
 <% else %>#GRUB_DISABLE_LINUX_UUID="true"
 <% end -%>
 
-# Uncomment to disable generation of recovery mode menu entries
 <% if @disable_recovery -%>
 GRUB_DISABLE_RECOVERY="true"
-<% else %>#GRUB_DISABLE_RECOVERY="true"
 <% end -%>
 
-# Uncomment to disable generation of submenu
 <% if @disable_submenu -%>
 GRUB_DISABLE_SUBMENU="true"
-<% else %>#GRUB_DISABLE_RECOVERY="true"
 <% end -%>
 
 # Uncomment to get a beep at grub start
@@ -72,8 +67,7 @@ GRUB_INIT_TUNE="<%= @tune %>"
 <% else %>#GRUB_INIT_TUNE="480 440 1"
 <% end -%>
 
-# Uncomment to set Xen boot parameters
 <% if !@cmdline_xen.empty? -%>
 GRUB_CMDLINE_XEN="<%= @cmdline_xen %>"
-<% else %>#GRUB_CMDLINE_XEN="dom0_mem=1024M,max:1024M"
+<% else %>
 <% end -%>
