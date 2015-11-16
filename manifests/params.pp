@@ -38,6 +38,13 @@ class grub2::params {
       $package_name      = [ 'grub2', 'grub2-tools' ]
       $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
     }
+    'Gentoo': {
+      $config_file       = '/etc/default/grub'
+      $distributor       = 'Gentoo',
+      $install_binary    = '/usr/sbin/grub2-install'
+      $package_name      = 'sys-boot/grub'
+      $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
+    }
     default: {
       fail("The ${module_name} module is not supported on ${::operatingsystem}")
     }
