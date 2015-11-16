@@ -40,9 +40,9 @@ class grub2::params {
     }
     'Gentoo': {
       $config_file       = '/etc/default/grub'
-      $distributor       = 'Gentoo',
+      $distributor       = 'Gentoo'
       $install_binary    = '/usr/sbin/grub2-install'
-      $package_name      = 'sys-boot/grub'
+      $package_name      = [ 'sys-boot/grub' ]
       $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
     }
     default: {
