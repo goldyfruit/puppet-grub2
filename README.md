@@ -1,11 +1,17 @@
-puppet-grub2
-============
+# puppet-grub2
 
 [![Build Status](https://travis-ci.org/goldyfruit/puppet-grub2.svg?branch=master)](https://travis-ci.org/goldyfruit/puppet-grub2)
 [![Puppet Forge](http://img.shields.io/puppetforge/v/goldyfruit/grub2.svg)](https://forge.puppetlabs.com/goldyfruit/grub2)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This module manages GRUB 2 bootloader
+
+## Supported distributions
+- Ubuntu
+- Debian
+- Red Hat
+- CentOS
+- Gentoo
 
 ## Parameters
 
@@ -95,7 +101,7 @@ This module manages GRUB 2 bootloader
 - **BOOL** : *true*
 
 ### Example
-
+```ruby
     class { 'grub2':
       update_grub               => false,
       install_grub              => false,
@@ -112,10 +118,13 @@ This module manages GRUB 2 bootloader
       hidden_timeout_quiet      => false,
       recordfail_timeout        => 5,
     }
-
+```
 ### Hiera support
 
 This module also supports the configuration of the parameters it exposes
 using Hiera. You can do this by namespacing around `grub2`. For instance, to
-set the value of `timeout` to `10`, you would use `grub2::timeout: 10` in
-your Hiera files.
+set the value of `timeout` to `10`, you would use something like that in
+your Hiera files:
+```yaml
+grub2::timeout: 10
+```
