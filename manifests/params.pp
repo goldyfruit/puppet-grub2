@@ -1,27 +1,29 @@
 # class: grub2::params: See README for documentation
 class grub2::params {
 
-  $badram                = ''
-  $config_template       = 'grub2/default_grub.erb'
-  $cmdline_linux         = ''
-  $cmdline_linux_default = ''
-  $cmdline_xen           = ''
-  $default_entry         = 0
-  $device_install        = ''
-  $disable_recovery      = false
-  $disable_submenu       = false
-  $disable_uuid          = false
-  $gfxmode               = ''
-  $hidden_timeout        = undef
-  $hidden_timeout_quiet  = undef
-  $install_grub          = false
-  $package_ensure        = 'present'
-  $recordfail_timeout    = 5
-  $serial_command        = ''
-  $terminal              = ''
-  $timeout               = 5
-  $tune                  = ''
-  $update_grub           = true
+  $badram                 = ''
+  $config_template        = 'grub2/default_grub.erb'
+  $cmdline_linux          = ''
+  $cmdline_linux_default  = ''
+  $cmdline_linux_recovery = ''
+  $cmdline_xen            = ''
+  $default_entry          = 0
+  $device_install         = ''
+  $disable_os_prober      = false
+  $disable_recovery       = false
+  $disable_submenu        = false
+  $disable_uuid           = false
+  $gfxmode                = ''
+  $hidden_timeout         = undef
+  $hidden_timeout_quiet   = undef
+  $install_grub           = false
+  $package_ensure         = 'present'
+  $recordfail_timeout     = 5
+  $serial_command         = ''
+  $terminal               = ''
+  $timeout                = 5
+  $tune                   = ''
+  $update_grub            = true
 
   case $::osfamily {
     'Debian': {
