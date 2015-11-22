@@ -31,6 +31,10 @@ This module manages GRUB 2 bootloader
 - Arguments passed to the kernel
 - **STRING** : *Empty by default*
 
+#### cmdline_linux_recovery
+- Arguments passed to the kernel
+- **STRING** : *Empty by default*
+
 #### cmdline_xen
 - Arguments passed to Xen
 - **STRING** : *Empty by default*
@@ -45,6 +49,10 @@ This module manages GRUB 2 bootloader
 
 #### disable_uuid
 - Define if GRUB should use the UUID in the root= path
+- **BOOL** : *false*
+
+#### disable_os_prober
+- Define if GRUB should add the results of os-prober to the menu
 - **BOOL** : *false*
 
 #### disable_recovery

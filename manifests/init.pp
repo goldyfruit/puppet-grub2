@@ -20,6 +20,10 @@
 #   Arguments passed to the kernel
 #   STRING : Empty by default
 #
+# [*cmdline_linux_recovery*]
+#   Arguments passed to the kernel
+#   STRING : Empty by default
+#
 # [*cmdline_xen*]
 #   Arguments passed to Xen
 #   STRING : Empty by default
@@ -34,6 +38,10 @@
 #
 # [*disable_uuid*]
 #   Define if GRUB should use the UUID in the root= path
+#   BOOL : false
+#
+# [*disable_os_prober*]
+#   Define if GRUB should add the results of os-prober to the menu
 #   BOOL : false
 #
 # [*disable_recovery*]
@@ -126,42 +134,46 @@
 # limitations under the License.
 #
 class grub2 (
-  $badram                = $grub2::params::badram,
-  $cmdline_linux         = $grub2::params::cmdline_linux,
-  $cmdline_linux_default = $grub2::params::cmdline_linux_default,
-  $cmdline_xen           = $grub2::params::cmdline_xen,
-  $config_file           = $grub2::params::config_file,
-  $config_template       = $grub2::params::config_template,
-  $default_entry         = $grub2::params::default_entry,
-  $device_install        = $grub2::params::device_install,
-  $disable_recovery      = $grub2::params::disable_recovery,
-  $disable_submenu       = $grub2::params::disable_submenu,
-  $disable_uuid          = $grub2::params::disable_uuid,
-  $distributor           = $grub2::params::distributor,
-  $gfxmode               = $grub2::params::gfxmode,
-  $hidden_timeout        = $grub2::params::hidden_timeout,
-  $hidden_timeout_quiet  = $grub2::params::hidden_timeout_quiet,
-  $install_binary        = $grub2::params::install_binary,
-  $install_grub          = $grub2::params::install_grub,
-  $package_ensure        = $grub2::params::package_ensure,
-  $package_name          = $grub2::params::package_name,
-  $recordfail_timeout    = $grub2::params::recordfail_timeout,
-  $serial_command        = $grub2::params::serial_command,
-  $terminal              = $grub2::params::terminal,
-  $timeout               = $grub2::params::timeout,
-  $tune                  = $grub2::params::tune,
-  $update_binary         = $grub2::params::update_binary,
-  $update_grub           = $grub2::params::update_grub,
+  $badram                 = $grub2::params::badram,
+  $cmdline_linux          = $grub2::params::cmdline_linux,
+  $cmdline_linux_default  = $grub2::params::cmdline_linux_default,
+  $cmdline_linux_recovery = $grub2::params::cmdline_linux_recovery,
+  $cmdline_xen            = $grub2::params::cmdline_xen,
+  $config_file            = $grub2::params::config_file,
+  $config_template        = $grub2::params::config_template,
+  $default_entry          = $grub2::params::default_entry,
+  $device_install         = $grub2::params::device_install,
+  $disable_os_prober      = $grub2::params::disable_os_prober,
+  $disable_recovery       = $grub2::params::disable_recovery,
+  $disable_submenu        = $grub2::params::disable_submenu,
+  $disable_uuid           = $grub2::params::disable_uuid,
+  $distributor            = $grub2::params::distributor,
+  $gfxmode                = $grub2::params::gfxmode,
+  $hidden_timeout         = $grub2::params::hidden_timeout,
+  $hidden_timeout_quiet   = $grub2::params::hidden_timeout_quiet,
+  $install_binary         = $grub2::params::install_binary,
+  $install_grub           = $grub2::params::install_grub,
+  $package_ensure         = $grub2::params::package_ensure,
+  $package_name           = $grub2::params::package_name,
+  $recordfail_timeout     = $grub2::params::recordfail_timeout,
+  $serial_command         = $grub2::params::serial_command,
+  $terminal               = $grub2::params::terminal,
+  $timeout                = $grub2::params::timeout,
+  $tune                   = $grub2::params::tune,
+  $update_binary          = $grub2::params::update_binary,
+  $update_grub            = $grub2::params::update_grub,
 ) inherits grub2::params {
 
   validate_string($badram)
   validate_string($cmdline_linux)
   validate_string($cmdline_linux_default)
+  validate_string($cmdline_linux_recovery)
   validate_string($cmdline_xen)
   validate_absolute_path($config_file)
   validate_string($config_template)
   validate_integer($default_entry)
   validate_string($device_install)
+  validate_bool($disable_os_prober)
   validate_bool($disable_recovery)
   validate_bool($disable_submenu)
   validate_bool($disable_uuid)
