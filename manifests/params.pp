@@ -45,6 +45,13 @@ class grub2::params {
       $package_name      = [ 'sys-boot/grub' ]
       $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
     }
+    'Suse': {
+      $config_file       = '/etc/default/grub'
+      $distributor       = '$(lsb_release -i -r -s 2> /dev/null || echo SUSE)'
+      $install_binary    = '/usr/sbin/grub2-install'
+      $package_name      = 'grub2'
+      $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
+    }
     default: {
       fail("The ${module_name} module is not supported on ${::operatingsystem}")
     }
