@@ -1,3 +1,11 @@
+2015-11-22  Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 0.0.8
+            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+  - Add support for SLES / Suse distribution
+  - Add GRUB_CMDLINE_LINUX_RECOVERY option
+  - Add GRUB_DISABLE_OS_PROBER option
+  - Add GRUB_SAVEDEFAULT option
+  - Add GRUB_BACKGROUND option
+
 2015-11-16  Steffen Zieger - saz <github@saz.sh> 0.0.7
             Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
   - Add support for Gentoo distribution
