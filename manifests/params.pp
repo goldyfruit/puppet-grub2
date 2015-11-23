@@ -7,7 +7,7 @@ class grub2::params {
   $cmdline_linux_default  = ''
   $cmdline_linux_recovery = ''
   $cmdline_xen            = ''
-  $default_entry          = 0
+  $default_entry          = '0'
   $device_install         = ''
   $disable_os_prober      = false
   $disable_recovery       = false
@@ -19,6 +19,7 @@ class grub2::params {
   $install_grub           = false
   $package_ensure         = 'present'
   $recordfail_timeout     = 5
+  $save_default           = false
   $serial_command         = ''
   $terminal               = ''
   $timeout                = 5

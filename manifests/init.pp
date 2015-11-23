@@ -77,6 +77,10 @@
 #   Without this set, headless machines may stall during boot.
 #   INTEGER : 5
 #
+# [*save_default*]
+#   Save the last selected entry as the new default one.
+#   BOOL : False
+
 # [*serial_command*]
 #   Set settings for the serial console
 #   STRING : Empty by default
@@ -156,6 +160,7 @@ class grub2 (
   $package_ensure         = $grub2::params::package_ensure,
   $package_name           = $grub2::params::package_name,
   $recordfail_timeout     = $grub2::params::recordfail_timeout,
+  $save_default           = $grub2::params::save_default,
   $serial_command         = $grub2::params::serial_command,
   $terminal               = $grub2::params::terminal,
   $timeout                = $grub2::params::timeout,
@@ -171,7 +176,7 @@ class grub2 (
   validate_string($cmdline_xen)
   validate_absolute_path($config_file)
   validate_string($config_template)
-  validate_integer($default_entry)
+  validate_string($default_entry)
   validate_string($device_install)
   validate_bool($disable_os_prober)
   validate_bool($disable_recovery)
@@ -186,6 +191,7 @@ class grub2 (
   validate_string($package_ensure)
   validate_array($package_name)
   validate_integer($recordfail_timeout)
+  validate_string($save_default)
   validate_string($serial_command)
   validate_string($terminal)
   validate_integer($timeout)
