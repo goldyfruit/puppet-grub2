@@ -1,6 +1,6 @@
 {
   "name": "goldyfruit-grub2",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "goldyfruit",
   "summary": "Puppet module for managing GRUB2",
   "license": "Apache-2.0",
@@ -13,7 +13,8 @@
     {"operatingsystem": "Debian"},
     {"operatingsystem": "Ubuntu"},
     {"operatingsystem": "CentOS"},
-    {"operatingsystem": "Gentoo"}
+    {"operatingsystem": "Gentoo"},
+    {"operatingsystem": "SLES"}
   ],
   "dependencies": [
     { "name": "puppetlabs/stdlib", "version_requirement": ">=4.6.0 <5.0.0" }
