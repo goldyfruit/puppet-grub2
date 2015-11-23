@@ -138,6 +138,7 @@
 # limitations under the License.
 #
 class grub2 (
+  $background_image       = $grub2::params::background_image,
   $badram                 = $grub2::params::badram,
   $cmdline_linux          = $grub2::params::cmdline_linux,
   $cmdline_linux_default  = $grub2::params::cmdline_linux_default,
@@ -169,6 +170,7 @@ class grub2 (
   $update_grub            = $grub2::params::update_grub,
 ) inherits grub2::params {
 
+  validate_string($background_image)
   validate_string($badram)
   validate_string($cmdline_linux)
   validate_string($cmdline_linux_default)

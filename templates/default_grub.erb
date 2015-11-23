@@ -84,3 +84,9 @@ GRUB_DISABLE_OS_PROBER="<%= @disable_os_prober %>"
 <% if @save_default -%>
 GRUB_SAVEDEFAULT="<%= @save_default %>"
 <% end -%>
+
+# Set a background image
+# Image must respect various specifications
+<% if @background_image -%>
+GRUB_BACKGROUND="<%= @background_image %>"
+<% end -%>

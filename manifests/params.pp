@@ -1,6 +1,7 @@
 # class: grub2::params: See README for documentation
 class grub2::params {
 
+  $background_image       = ''
   $badram                 = ''
   $config_template        = 'grub2/default_grub.erb'
   $cmdline_linux          = ''
