@@ -4,6 +4,10 @@
 #
 # === Parameters
 #
+# [*background_image*]
+#   Specify a path to a background image
+#   STRING : Empty by default
+#
 # [*badram*]
 #   Define some memory addresses for BadRAM filtering
 #   STRING : Empty by default
@@ -80,7 +84,7 @@
 # [*save_default*]
 #   Save the last selected entry as the new default one.
 #   BOOL : False
-
+#
 # [*serial_command*]
 #   Set settings for the serial console
 #   STRING : Empty by default
