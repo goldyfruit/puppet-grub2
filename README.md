@@ -12,8 +12,13 @@ This module manages GRUB 2 bootloader
 - Red Hat
 - CentOS
 - Gentoo
+- SLES / OpenSuse
 
 ## Parameters
+
+#### background_image
+ - Specify a path to a background image
+ - **STRING** : *Empty by default*
 
 #### badram
  - Define some memory addresses for BadRAM filtering
@@ -41,7 +46,7 @@ This module manages GRUB 2 bootloader
 
 #### default_entry
 - Define on which kernel the system will boot
-- **INTEGER** : *0*
+- **STRING** : *'0'*
 
 #### device_install
 - Define on which hard drive the MBR will be write
@@ -87,6 +92,11 @@ This module manages GRUB 2 bootloader
 - Set default timeout value for GRUB2.
   Useful to stop headless machines stalling during boot.
 - **INTEGER** : *5*
+
+#### save_default
+- If true, the last selected entry will become the new default one
+  GRUB_DEFAULT should be set to "saved" and not to 0
+- **BOOL** : *False*
 
 ####  serial_command
 - Set settings for the serial console
