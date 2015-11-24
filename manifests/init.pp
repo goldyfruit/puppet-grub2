@@ -197,7 +197,7 @@ class grub2 (
   validate_string($package_ensure)
   validate_array($package_name)
   validate_integer($recordfail_timeout)
-  validate_string($save_default)
+  validate_bool($save_default)
   validate_string($serial_command)
   validate_string($terminal)
   validate_integer($timeout)
