@@ -1,3 +1,9 @@
+2015-11-24  Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 1.0.0
+            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+  - Fix the validation for save_default value
+  - Add missing comment about background_image option
+  - Module pass from 0.0.x version to 1.0.x version
+
 2015-11-22  Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 0.0.8
             Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
   - Add support for SLES / Suse distribution
