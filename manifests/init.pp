@@ -66,11 +66,19 @@
 #
 # [*hidden_timeout_quiet*]
 #   Define if the hidden timeout is quiet or not
-#   BOOL : undef
+#   BOOL : false
+#
+# [*install_binary*]
+#   Path to GRUB installation command
+#   ABSOLUTE_PATH : Value depends on Linux distribution
+#
+# [*update_binary*]
+#   Path to GRUB configuration file update command
+#   ABSOLUTE_PATH : Value depends on Linux distribution
 #
 # [*install_grub*]
 #   Install the GRUB packages and install GRUB in the MBR
-#   BOOL : False
+#   BOOL : false
 #
 # [*package_ensure*]
 #   Puppet stuff, define in which state should be the GRUB packages

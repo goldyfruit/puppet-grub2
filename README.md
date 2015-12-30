@@ -78,7 +78,15 @@ This module manages GRUB 2 bootloader
 
 #### hidden_timeout_quiet
 - Define if the hidden timeout is quiet or not
-- **BOOL** : *Not present in config file unless explicitly defined with true or false* 
+- **BOOL** : *false* 
+
+#### install_binary
+- Path to GRUB installation command
+- **ABSOLUTE_PATH** : *Value depends on Linux distribution*
+
+#### update_binary
+- Path to GRUB configuration file update command
+- **ABSOLUTE_PATH** : *Value depends on Linux distribution*
 
 #### install_grub
 - Install the GRUB packages and install GRUB in the MBR
