@@ -191,8 +191,8 @@ class grub2 (
   validate_string($distributor)
   validate_string($gfxmode)
   validate_string($hidden_timeout)
-  validate_string($hidden_timeout_quiet)
-  validate_string($install_binary)
+  validate_bool($hidden_timeout_quiet)
+  validate_absolute_path($install_binary)
   validate_bool($install_grub)
   validate_string($package_ensure)
   validate_array($package_name)
@@ -202,7 +202,7 @@ class grub2 (
   validate_string($terminal)
   validate_integer($timeout)
   validate_string($tune)
-  validate_string($update_binary)
+  validate_absolute_path($update_binary)
   validate_bool($update_grub)
 
   anchor { 'grub2::begin': } ->
