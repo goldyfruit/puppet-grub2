@@ -66,11 +66,19 @@
 #
 # [*hidden_timeout_quiet*]
 #   Define if the hidden timeout is quiet or not
-#   BOOL : undef
+#   BOOL : false
+#
+# [*install_binary*]
+#   Path to GRUB installation command
+#   ABSOLUTE_PATH : Value depends on Linux distribution
+#
+# [*update_binary*]
+#   Path to GRUB configuration file update command
+#   ABSOLUTE_PATH : Value depends on Linux distribution
 #
 # [*install_grub*]
 #   Install the GRUB packages and install GRUB in the MBR
-#   BOOL : False
+#   BOOL : false
 #
 # [*package_ensure*]
 #   Puppet stuff, define in which state should be the GRUB packages
@@ -191,8 +199,8 @@ class grub2 (
   validate_string($distributor)
   validate_string($gfxmode)
   validate_string($hidden_timeout)
-  validate_string($hidden_timeout_quiet)
-  validate_string($install_binary)
+  validate_bool($hidden_timeout_quiet)
+  validate_absolute_path($install_binary)
   validate_bool($install_grub)
   validate_string($package_ensure)
   validate_array($package_name)
@@ -202,7 +210,7 @@ class grub2 (
   validate_string($terminal)
   validate_integer($timeout)
   validate_string($tune)
-  validate_string($update_binary)
+  validate_absolute_path($update_binary)
   validate_bool($update_grub)
 
   anchor { 'grub2::begin': } ->

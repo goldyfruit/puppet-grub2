@@ -16,7 +16,7 @@ class grub2::params {
   $disable_uuid           = false
   $gfxmode                = ''
   $hidden_timeout         = undef
-  $hidden_timeout_quiet   = undef
+  $hidden_timeout_quiet   = false
   $install_grub           = false
   $package_ensure         = 'present'
   $recordfail_timeout     = 5
