@@ -1,3 +1,11 @@
+2016-01-04  Remigiusz Świc - ex3cv <remigiusz@swic.net.pl> 1.0.1
+  - Fix the validation:
+    * Hidden_timeout_quiet is a boolean
+    * Install_binary is an absolute path
+    * Update_binary is an absolute path
+  - Default value fix of "hidden_timeout_quiet" to false as undef is
+  - Documentation update around changes made in the module
+
 2015-11-24  Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 1.0.0
             Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
   - Fix the validation for save_default value
