@@ -1,3 +1,10 @@
+2016-17-06  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.2
+  - Add username and PBKDF2 password support
+  - Fix some typos:
+    * init.pp
+    * params.pp
+    * README.md
+
 2016-01-04  Remigiusz Świc - ex3cv <remigiusz@swic.net.pl> 1.0.1
   - Fix the validation:
     * Hidden_timeout_quiet is a boolean

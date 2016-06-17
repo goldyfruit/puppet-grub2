@@ -84,14 +84,26 @@
 #   Puppet stuff, define in which state should be the GRUB packages
 #   STRING : 'present'
 #
+# [*password*]
+#   Enable password to protect the GRUB configuration
+#   BOOL : false
+#
+# [*password_username*]
+#   Super user allowed to edit the GRUB configuration
+#   STRING : 'present'
+#
+# [*password_pbkdf2_hash*]
+#   Password hash generated via grub-mkpasswd-pbkdf2 or grub2-mkpasswd-pbkdf2 commands
+#   STRING : 'present'
+#
 # [*recordfail_timeout*]
-#   Set default timeout value for GRUB2.
-#   Without this set, headless machines may stall during boot.
+#   Set default timeout value for GRUB.
+#   Without this set, headless machines may stall during boot
 #   INTEGER : 5
 #
 # [*save_default*]
-#   Save the last selected entry as the new default one.
-#   BOOL : False
+#   Save the last selected entry as the new default one
+#   BOOL : false
 #
 # [*serial_command*]
 #   Set settings for the serial console
@@ -127,6 +139,9 @@
 #   disable_recovery          => true,
 #   tune                      => '480 440 1',
 #   device_install            => '/dev/sda',
+#   password                  => true,
+#   password_username         => 'chewbacca',
+#   password_pbkdf2_hash      => 'grub.pbkdf2.sha512.10000.EDBE1B820072D36A7B0059C7C33A2AA8B9D60888B0A44E7A566CB92E35F16A0F20770E79FB2E283680715ED916498D59B72F02599B461E4A087704E5E8A2A92D.911F2E7867A16DE76C170AD6E1C14D3F0AE2B7E1B58D1D967F98CEC9F2C2EAF7397ADE15CFB661CA94F6B7963A9C98BEFFB3026A4285FC04DB9F4118BDA39D58',
 # }
 #
 # === Authors
@@ -135,7 +150,7 @@
 #
 # === Copyright
 #
-# Copyright 2014-2015 Gaetan Trellu
+# Copyright 2014-2016 Gaetan Trellu
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -172,6 +187,9 @@ class grub2 (
   $install_grub           = $grub2::params::install_grub,
   $package_ensure         = $grub2::params::package_ensure,
   $package_name           = $grub2::params::package_name,
+  $password               = $grub2::params::password,
+  $password_username      = $grub2::params::password_username,
+  $password_pbkdf2_hash   = $grub2::params::password_pbkdf2_hash,
   $recordfail_timeout     = $grub2::params::recordfail_timeout,
   $save_default           = $grub2::params::save_default,
   $serial_command         = $grub2::params::serial_command,
@@ -204,6 +222,9 @@ class grub2 (
   validate_bool($install_grub)
   validate_string($package_ensure)
   validate_array($package_name)
+  validate_bool($password)
+  validate_string($password_username)
+  validate_string($password_pbkdf2_hash)
   validate_integer($recordfail_timeout)
   validate_bool($save_default)
   validate_string($serial_command)

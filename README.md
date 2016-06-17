@@ -90,13 +90,25 @@ This module manages GRUB 2 bootloader
 
 #### install_grub
 - Install the GRUB packages and install GRUB in the MBR
-- **BOOL** : *False*
+- **BOOL** : *false*
 
 #### package_ensure
 - Puppet stuff, define in which state should be the GRUB packages
 - **STRING** : *'present'*
 
-####  recordfail_timeout
+#### password
+- Enable password to protect the GRUB configuration
+- **BOOL** : *false*
+
+#### password_username
+- Set the username that will be able to edit the GRUB configuration
+- **STRING** : *Empty by default*
+
+#### password_pbkdf2_hash
+- Set PBKDF2 password hash generated via grub-mkpasswd-pbkdf2 or grub2-mkpasswd-pbkdf2 commands
+- **STRING** : *Empty by default*
+
+#### recordfail_timeout
 - Set default timeout value for GRUB2.
   Useful to stop headless machines stalling during boot.
 - **INTEGER** : *5*
@@ -104,9 +116,9 @@ This module manages GRUB 2 bootloader
 #### save_default
 - If true, the last selected entry will become the new default one
   GRUB_DEFAULT should be set to "saved" and not to 0
-- **BOOL** : *False*
+- **BOOL** : *false*
 
-####  serial_command
+#### serial_command
 - Set settings for the serial console
 - **STRING** : *Empty by default*
 
@@ -143,6 +155,9 @@ This module manages GRUB 2 bootloader
       hidden_timeout            => 0,
       hidden_timeout_quiet      => false,
       recordfail_timeout        => 5,
+      password                  => true,
+      password_username         => 'chewbacca',
+      password_pbkdf2_hash      => 'grub.pbkdf2.sha512.10000.EDBE1B820072D36A7B0059C7C33A2AA8B9D60888B0A44E7A566CB92E35F16A0F20770E79FB2E283680715ED916498D59B72F02599B461E4A087704E5E8A2A92D.911F2E7867A16DE76C170AD6E1C14D3F0AE2B7E1B58D1D967F98CEC9F2C2EAF7397ADE15CFB661CA94F6B7963A9C98BEFFB3026A4285FC04DB9F4118BDA39D58',
     }
 ```
 ### Hiera support

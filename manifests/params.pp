@@ -19,6 +19,10 @@ class grub2::params {
   $hidden_timeout_quiet   = false
   $install_grub           = false
   $package_ensure         = 'present'
+  $password               = false
+  $password_username      = ''
+  $password_pbkdf2_hash   = ''
+  $password_template      = 'grub2/50_password.erb'
   $recordfail_timeout     = 5
   $save_default           = false
   $serial_command         = ''
