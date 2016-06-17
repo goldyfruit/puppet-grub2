@@ -7,6 +7,7 @@
   "source": "git://github.com/goldyfruit/puppet-grub2.git",
   "project_page": "https://github.com/goldyfruit/puppet-grub2",
   "issues_url": "https://github.com/goldyfruit/puppet-grub2/issues",
+  "tags": ["grub", "grub2", "bootload", "system", "linux"],
   "description": "Puppet module for managing GRUB2",
   "operatingsystem_support": [
     {"operatingsystem": "RedHat"},
