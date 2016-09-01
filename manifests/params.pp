@@ -57,8 +57,15 @@ class grub2::params {
       $config_file       = '/etc/default/grub'
       $distributor       = '$(lsb_release -i -r -s 2> /dev/null || echo SUSE)'
       $install_binary    = '/usr/sbin/grub2-install'
-      $package_name      = 'grub2'
+      $package_name      = [ 'grub2' ]
       $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
+    }
+    'Archlinux': {
+      $config_file       = '/etc/default/grub'
+      $distributor       = '$(lsb_release -i -r -s 2> /dev/null || echo Archlinux)'
+      $install_binary    = '/usr/bin/grub-install'
+      $package_name      = [ 'grub' ]
+      $update_binary     = '/usr/bin/grub-mkconfig -o /boot/grub/grub.cfg'
     }
     default: {
       fail("The ${module_name} module is not supported on ${::operatingsystem}")
