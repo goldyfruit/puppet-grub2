@@ -13,6 +13,7 @@ This module manages GRUB 2 bootloader
 - CentOS
 - Gentoo
 - SLES / OpenSuse
+- Arch Linux
 
 ## Parameters
 
