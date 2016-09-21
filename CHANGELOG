@@ -1,3 +1,11 @@
+2016-20-09  Phillip Schichtel - pschichtel <phillip.contact@schich.tel> 1.0.4
+            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+  - Add support for Arch Linux (thanks pschichtel)
+  - Fix issue related to password:
+      * https://github.com/goldyfruit/puppet-grub2/issues/23
+  - Improve Travis and Rake support
+  - Jump to 1.0.4 version because I did a mistake with 1.0.3 version
+
 2016-17-06  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.2
   - Add username and PBKDF2 password support
   - Fix some typos:
