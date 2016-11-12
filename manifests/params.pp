@@ -9,7 +9,7 @@ class grub2::params {
   $cmdline_linux_recovery = ''
   $cmdline_xen            = ''
   $default_entry          = '0'
-  $device_install         = ''
+  $device_install         = []
   $disable_os_prober      = false
   $disable_recovery       = false
   $disable_submenu        = false

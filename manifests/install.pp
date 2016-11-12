@@ -6,9 +6,11 @@ class grub2::install inherits grub2 {
       ensure => $grub2::package_ensure,
     }
 
-    if $grub2::device_install != '' {
-      exec { 'Install GRUB':
-        command => "${grub2::install_binary} ${grub2::device_install}",
+    if !empty($grub2::device_install) {
+      each($grub2::device_install) |$device| {
+        exec { "Install GRUB on ${device}":
+          command => "${grub2::install_binary} ${device}",
+        }
       }
     }
   }
