@@ -38,7 +38,7 @@
 #
 # [*device_install*]
 #   Define on which hard drive the MBR will be write
-#   STRING : Empty by default
+#   ARRAY : Empty by default
 #
 # [*disable_uuid*]
 #   Define if GRUB should use the UUID in the root= path
@@ -138,7 +138,7 @@
 #   disable_uuid              => true,
 #   disable_recovery          => true,
 #   tune                      => '480 440 1',
-#   device_install            => '/dev/sda',
+#   device_install            => ['/dev/sda'],
 #   password                  => true,
 #   password_username         => 'chewbacca',
 #   password_pbkdf2_hash      => 'grub.pbkdf2.sha512.10000.EDBE1B820072D36A7B0059C7C33A2AA8B9D60888B0A44E7A566CB92E35F16A0F20770E79FB2E283680715ED916498D59B72F02599B461E4A087704E5E8A2A92D.911F2E7867A16DE76C170AD6E1C14D3F0AE2B7E1B58D1D967F98CEC9F2C2EAF7397ADE15CFB661CA94F6B7963A9C98BEFFB3026A4285FC04DB9F4118BDA39D58',
@@ -209,7 +209,13 @@ class grub2 (
   validate_absolute_path($config_file)
   validate_string($config_template)
   validate_string($default_entry)
-  validate_string($device_install)
+  if is_string($device_install) {
+    validate_string($device_install)
+    deprecation('device_install', 'String type for this parameter is deprecated, please use an Array instead. See documentation at https://github.com/goldyfruit/puppet-grub2#device_install.')
+    any2array($device_install)
+  } else {
+    validate_array($device_install)
+  }
   validate_bool($disable_os_prober)
   validate_bool($disable_recovery)
   validate_bool($disable_submenu)

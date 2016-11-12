@@ -51,7 +51,7 @@ This module manages GRUB 2 bootloader
 
 #### device_install
 - Define on which hard drive the MBR will be write
-- **STRING** : *Empty by default*
+- **ARRAY** : *Empty by default*
 
 #### disable_uuid
 - Define if GRUB should use the UUID in the root= path
@@ -79,7 +79,7 @@ This module manages GRUB 2 bootloader
 
 #### hidden_timeout_quiet
 - Define if the hidden timeout is quiet or not
-- **BOOL** : *false* 
+- **BOOL** : *false*
 
 #### install_binary
 - Path to GRUB installation command
@@ -152,7 +152,7 @@ This module manages GRUB 2 bootloader
       disable_uuid              => true,
       disable_recovery          => true,
       tune                      => '480 440 1',
-      device_install            => '/dev/sda',
+      device_install            => ['/dev/sda'],
       hidden_timeout            => 0,
       hidden_timeout_quiet      => false,
       recordfail_timeout        => 5,
