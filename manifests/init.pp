@@ -211,8 +211,7 @@ class grub2 (
   validate_string($default_entry)
   if is_string($device_install) {
     validate_string($device_install)
-    deprecation('device_install', 'String type for this parameter is deprecated, please use an Array instead. See documentation at https://github.com/goldyfruit/puppet-grub2#device_install.')
-    any2array($device_install)
+    warning('String type for this parameter is deprecated, please use an Array instead. See documentation at https://github.com/goldyfruit/puppet-grub2#device_install.')
   } else {
     validate_array($device_install)
   }
