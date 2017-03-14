@@ -1,4 +1,7 @@
-2017-02-06  Sebastien Badia - sbadia <https://keybase.io/sbadia> 1.0.5
+2017-14-03  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.6
+  - Puppet 3.x is now deprecated, this module requires Puppet 4.x
+
+2017-06-02  Sebastien Badia - sbadia <https://keybase.io/sbadia> 1.0.5
   - device_install is now an array of devices in order to support most than one device.
 
 2016-20-09  Phillip Schichtel - pschichtel <phillip.contact@schich.tel> 1.0.4
