@@ -14,6 +14,7 @@ class grub2::params {
   $disable_recovery            = false
   $disable_submenu             = false
   $disable_uuid                = false
+  $enable_cryptodisk           = false
   $gfxmode                     = ''
   $hidden_timeout              = undef
   $hidden_timeout_quiet        = false

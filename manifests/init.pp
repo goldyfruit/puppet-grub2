@@ -56,6 +56,11 @@
 #   Define if GRUB should use the submenu
 #   BOOL : false
 #
+# [*enable_cryptodisk*]
+#   Define if GRUB should check for encrypted disks and generate additional
+#   commands needed to access them during boot
+#   BOOL : false
+#
 # [*gfxmode*]
 #   Define which resolution should be used if VBE is used
 #   STRING : Empty by default
@@ -184,6 +189,7 @@ class grub2 (
   $disable_submenu             = $grub2::params::disable_submenu,
   $disable_uuid                = $grub2::params::disable_uuid,
   $distributor                 = $grub2::params::distributor,
+  $enable_cryptodisk           = $grub2::params::enable_cryptodisk,
   $gfxmode                     = $grub2::params::gfxmode,
   $hidden_timeout              = $grub2::params::hidden_timeout,
   $hidden_timeout_quiet        = $grub2::params::hidden_timeout_quiet,
@@ -225,6 +231,7 @@ class grub2 (
   validate_bool($disable_submenu)
   validate_bool($disable_uuid)
   validate_string($distributor)
+  validate_bool($enable_cryptodisk)
   validate_string($gfxmode)
   validate_string($hidden_timeout)
   validate_bool($hidden_timeout_quiet)

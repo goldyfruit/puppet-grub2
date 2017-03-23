@@ -64,6 +64,10 @@ GRUB_DISABLE_RECOVERY="true"
 GRUB_DISABLE_SUBMENU="true"
 <% end -%>
 
+<% if @enable_cryptodisk -%>
+GRUB_ENABLE_CRYPTODISK="y"
+<% end -%>
+
 # Uncomment to get a beep at grub start
 <% if !@tune.empty? -%>
 GRUB_INIT_TUNE="<%= @tune %>"
