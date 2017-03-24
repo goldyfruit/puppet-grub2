@@ -123,6 +123,10 @@ This module manages GRUB 2 bootloader
 - Set settings for the serial console
 - **STRING** : *Empty by default*
 
+#### suse_btrfs_snapshot_booting
+- Whether the root disk is a btrfs snapshot or not
+- **BOOL** : *false*
+
 #### terminal
 - Define on which terminal the ouput should be display
 - **STRING** : *Empty by default*

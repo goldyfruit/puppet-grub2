@@ -109,6 +109,10 @@
 #   Set settings for the serial console
 #   STRING : Empty by default
 #
+# [*suse_btrfs_snapshot_booting*]
+#   Whether the root disk is a btrfs snapshot or not
+#   BOOL : false
+#
 # [*terminal*]
 #   Define on which terminal the ouput should be display
 #   STRING : Empty by default
@@ -165,39 +169,40 @@
 # limitations under the License.
 #
 class grub2 (
-  $background_image       = $grub2::params::background_image,
-  $badram                 = $grub2::params::badram,
-  $cmdline_linux          = $grub2::params::cmdline_linux,
-  $cmdline_linux_default  = $grub2::params::cmdline_linux_default,
-  $cmdline_linux_recovery = $grub2::params::cmdline_linux_recovery,
-  $cmdline_xen            = $grub2::params::cmdline_xen,
-  $config_file            = $grub2::params::config_file,
-  $config_template        = $grub2::params::config_template,
-  $default_entry          = $grub2::params::default_entry,
-  $device_install         = $grub2::params::device_install,
-  $disable_os_prober      = $grub2::params::disable_os_prober,
-  $disable_recovery       = $grub2::params::disable_recovery,
-  $disable_submenu        = $grub2::params::disable_submenu,
-  $disable_uuid           = $grub2::params::disable_uuid,
-  $distributor            = $grub2::params::distributor,
-  $gfxmode                = $grub2::params::gfxmode,
-  $hidden_timeout         = $grub2::params::hidden_timeout,
-  $hidden_timeout_quiet   = $grub2::params::hidden_timeout_quiet,
-  $install_binary         = $grub2::params::install_binary,
-  $install_grub           = $grub2::params::install_grub,
-  $package_ensure         = $grub2::params::package_ensure,
-  $package_name           = $grub2::params::package_name,
-  $password               = $grub2::params::password,
-  $password_username      = $grub2::params::password_username,
-  $password_pbkdf2_hash   = $grub2::params::password_pbkdf2_hash,
-  $recordfail_timeout     = $grub2::params::recordfail_timeout,
-  $save_default           = $grub2::params::save_default,
-  $serial_command         = $grub2::params::serial_command,
-  $terminal               = $grub2::params::terminal,
-  $timeout                = $grub2::params::timeout,
-  $tune                   = $grub2::params::tune,
-  $update_binary          = $grub2::params::update_binary,
-  $update_grub            = $grub2::params::update_grub,
+  $background_image            = $grub2::params::background_image,
+  $badram                      = $grub2::params::badram,
+  $cmdline_linux               = $grub2::params::cmdline_linux,
+  $cmdline_linux_default       = $grub2::params::cmdline_linux_default,
+  $cmdline_linux_recovery      = $grub2::params::cmdline_linux_recovery,
+  $cmdline_xen                 = $grub2::params::cmdline_xen,
+  $config_file                 = $grub2::params::config_file,
+  $config_template             = $grub2::params::config_template,
+  $default_entry               = $grub2::params::default_entry,
+  $device_install              = $grub2::params::device_install,
+  $disable_os_prober           = $grub2::params::disable_os_prober,
+  $disable_recovery            = $grub2::params::disable_recovery,
+  $disable_submenu             = $grub2::params::disable_submenu,
+  $disable_uuid                = $grub2::params::disable_uuid,
+  $distributor                 = $grub2::params::distributor,
+  $gfxmode                     = $grub2::params::gfxmode,
+  $hidden_timeout              = $grub2::params::hidden_timeout,
+  $hidden_timeout_quiet        = $grub2::params::hidden_timeout_quiet,
+  $install_binary              = $grub2::params::install_binary,
+  $install_grub                = $grub2::params::install_grub,
+  $package_ensure              = $grub2::params::package_ensure,
+  $package_name                = $grub2::params::package_name,
+  $password                    = $grub2::params::password,
+  $password_username           = $grub2::params::password_username,
+  $password_pbkdf2_hash        = $grub2::params::password_pbkdf2_hash,
+  $recordfail_timeout          = $grub2::params::recordfail_timeout,
+  $save_default                = $grub2::params::save_default,
+  $serial_command              = $grub2::params::serial_command,
+  $suse_btrfs_snapshot_booting = $grub2::params::suse_btrfs_snapshot_booting,
+  $terminal                    = $grub2::params::terminal,
+  $timeout                     = $grub2::params::timeout,
+  $tune                        = $grub2::params::tune,
+  $update_binary               = $grub2::params::update_binary,
+  $update_grub                 = $grub2::params::update_grub,
 ) inherits grub2::params {
 
   validate_string($background_image)
@@ -233,6 +238,7 @@ class grub2 (
   validate_integer($recordfail_timeout)
   validate_bool($save_default)
   validate_string($serial_command)
+  validate_bool($suse_btrfs_snapshot_booting)
   validate_string($terminal)
   validate_integer($timeout)
   validate_string($tune)
