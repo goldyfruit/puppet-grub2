@@ -79,6 +79,10 @@ GRUB_CMDLINE_XEN="<%= @cmdline_xen %>"
 GRUB_DISABLE_OS_PROBER="<%= @disable_os_prober %>"
 <% end -%>
 
+<% if @suse_btrfs_snapshot_booting -%>
+SUSE_BTRFS_SNAPSHOT_BOOTING="<%= @suse_btrfs_snapshot_booting %>"
+<% end -%>
+
 # If true, the last selected entry will become the new default one
 # GRUB_DEFAULT should be set to "saved" and not to 0
 <% if @save_default -%>
