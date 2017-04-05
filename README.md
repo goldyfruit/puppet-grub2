@@ -69,6 +69,11 @@ This module manages GRUB 2 bootloader
 - Define if GRUB should display the submenu
 - **BOOL** : *false*
 
+#### enable_cryptodisk
+- Define if GRUB should check for encrypted disks and generate additional
+  commands needed to access them during boot
+- **BOOL** : *false*
+
 #### gfxmode
 - Define which resolution should be used if VBE is used
 - **STRING** : *Empty by default*
