@@ -11,7 +11,9 @@ class grub2::install inherits grub2 {
     if !empty($real_device_install) {
       each($real_device_install) |$device| {
         exec { "Install GRUB on ${device}":
-          command => "${grub2::install_binary} ${device}",
+          command     => "${grub2::install_binary} ${device}",
+          subscribe   => Package[$grub2::package_name],
+          refreshonly => true,
         }
       }
     }
