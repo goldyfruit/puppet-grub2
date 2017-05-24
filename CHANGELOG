@@ -1,3 +1,13 @@
+2017-23-05  Florian Klink - flokli <flokli@flokli.de> 1.0.7
+            Theo Chatzimichos - tampakrap <tampakrap@gmail.com>
+            Michael Hanselmann - hansmi <public@hansmi.ch>
+            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 
+  - Add the SUSE_BTRFS_SNAPSHOT_BOOTING option
+  - Add support for encrypted volumes
+  - Install GRUB only when there is a package change
+  - Add the possibility to remove grub-legacy package
+  - Make Travis works with Puppet 4.x
+
 2017-14-03  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.6
   - Puppet 3.x is now deprecated, this module requires Puppet 4.x
 
