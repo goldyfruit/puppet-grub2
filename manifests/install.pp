@@ -20,8 +20,8 @@ class grub2::install inherits grub2 {
   }
 
   if $grub2::remove_grub_legacy {
-    if $package_name_legacy {
-      package { $package_name_legacy:
+    if $grub2::$package_name_legacy {
+      package { $grub2::$package_name_legacy:
         ensure => absent,
       }
     }

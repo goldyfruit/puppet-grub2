@@ -260,10 +260,10 @@ class grub2 (
   validate_absolute_path($update_binary)
   validate_bool($update_grub)
 
-  anchor { 'grub2::begin': } ->
-  class { '::grub2::install': } ->
-  class { '::grub2::config': } ~>
-  class { '::grub2::update': } ->
+  -> anchor { 'grub2::begin': }
+  -> class { '::grub2::install': }
+  ~> class { '::grub2::config': }
+  -> class { '::grub2::update': }
   anchor { 'grub2::end': }
 
 }
