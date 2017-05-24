@@ -85,6 +85,10 @@
 #   Install the GRUB packages and install GRUB in the MBR
 #   BOOL : false
 #
+# [*remove_grub_legacy*]
+#   Ensure the GRUB legacy is not installed
+#   BOOL : false
+#
 # [*package_ensure*]
 #   Puppet stuff, define in which state should be the GRUB packages
 #   STRING : 'present'
@@ -195,8 +199,10 @@ class grub2 (
   $hidden_timeout_quiet        = $grub2::params::hidden_timeout_quiet,
   $install_binary              = $grub2::params::install_binary,
   $install_grub                = $grub2::params::install_grub,
+  $remove_grub_legacy          = $grub2::params::remove_grub_legacy,
   $package_ensure              = $grub2::params::package_ensure,
   $package_name                = $grub2::params::package_name,
+  $package_name_legacy         = $grub2::params::package_name_legacy,
   $password                    = $grub2::params::password,
   $password_username           = $grub2::params::password_username,
   $password_pbkdf2_hash        = $grub2::params::password_pbkdf2_hash,
@@ -237,8 +243,10 @@ class grub2 (
   validate_bool($hidden_timeout_quiet)
   validate_absolute_path($install_binary)
   validate_bool($install_grub)
+  validate_bool($remove_grub_legacy)
   validate_string($package_ensure)
   validate_array($package_name)
+  validate_string($package_name_legacy)
   validate_bool($password)
   validate_string($password_username)
   validate_string($password_pbkdf2_hash)

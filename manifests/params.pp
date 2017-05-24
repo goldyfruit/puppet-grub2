@@ -19,6 +19,7 @@ class grub2::params {
   $hidden_timeout              = undef
   $hidden_timeout_quiet        = false
   $install_grub                = false
+  $remove_grub_legacy          = false
   $package_ensure              = 'present'
   $password                    = false
   $password_username           = ''
@@ -35,39 +36,44 @@ class grub2::params {
 
   case $::osfamily {
     'Debian': {
-      $config_file       = '/etc/default/grub'
-      $distributor       = '$(lsb_release -i -s 2> /dev/null || echo Debian)'
-      $install_binary    = '/usr/sbin/grub-install'
-      $package_name      = [ 'grub-pc', 'grub-common' ]
-      $update_binary     = '/usr/sbin/update-grub'
+      $config_file         = '/etc/default/grub'
+      $distributor         = '$(lsb_release -i -s 2> /dev/null || echo Debian)'
+      $install_binary      = '/usr/sbin/grub-install'
+      $package_name        = [ 'grub-pc', 'grub-common' ]
+      $package_name_legacy = 'grub-legacy'
+      $update_binary       = '/usr/sbin/update-grub'
     }
     'Redhat': {
-      $config_file       = '/etc/default/grub'
-      $distributor       = "$(sed 's, release .*$,,g' /etc/system-release)"
-      $install_binary    = '/usr/sbin/grub2-install'
-      $package_name      = [ 'grub2', 'grub2-tools' ]
-      $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
+      $config_file         = '/etc/default/grub'
+      $distributor         = "$(sed 's, release .*$,,g' /etc/system-release)"
+      $install_binary      = '/usr/sbin/grub2-install'
+      $package_name        = [ 'grub2', 'grub2-tools' ]
+      $package_name_legacy = undef
+      $update_binary       = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
     }
     'Gentoo': {
-      $config_file       = '/etc/default/grub'
-      $distributor       = 'Gentoo'
-      $install_binary    = '/usr/sbin/grub2-install'
-      $package_name      = [ 'sys-boot/grub' ]
-      $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
+      $config_file         = '/etc/default/grub'
+      $distributor         = 'Gentoo'
+      $install_binary      = '/usr/sbin/grub2-install'
+      $package_name        = [ 'sys-boot/grub' ]
+      $package_name_legacy = undef
+      $update_binary       = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
     }
     'Suse': {
-      $config_file       = '/etc/default/grub'
-      $distributor       = '$(lsb_release -i -r -s 2> /dev/null || echo SUSE)'
-      $install_binary    = '/usr/sbin/grub2-install'
-      $package_name      = [ 'grub2' ]
-      $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
+      $config_file         = '/etc/default/grub'
+      $distributor         = '$(lsb_release -i -r -s 2> /dev/null || echo SUSE)'
+      $install_binary      = '/usr/sbin/grub2-install'
+      $package_name        = [ 'grub2' ]
+      $package_name_legacy = undef
+      $update_binary       = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
     }
     'Archlinux': {
-      $config_file       = '/etc/default/grub'
-      $distributor       = '$(lsb_release -i -r -s 2> /dev/null || echo Archlinux)'
-      $install_binary    = '/usr/bin/grub-install'
-      $package_name      = [ 'grub' ]
-      $update_binary     = '/usr/bin/grub-mkconfig -o /boot/grub/grub.cfg'
+      $config_file         = '/etc/default/grub'
+      $distributor         = '$(lsb_release -i -r -s 2> /dev/null || echo Archlinux)'
+      $install_binary      = '/usr/bin/grub-install'
+      $package_name        = [ 'grub' ]
+      $package_name_legacy = undef
+      $update_binary       = '/usr/bin/grub-mkconfig -o /boot/grub/grub.cfg'
     }
     default: {
       fail("The ${module_name} module is not supported on ${::operatingsystem}")
