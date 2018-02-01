@@ -22,6 +22,7 @@ class grub2::params {
   $remove_grub_legacy          = false
   $package_ensure              = 'present'
   $password                    = false
+  $password_file               = '/etc/grub.d/50_password'
   $password_username           = ''
   $password_pbkdf2_hash        = ''
   $password_template           = 'grub2/50_password.erb'
