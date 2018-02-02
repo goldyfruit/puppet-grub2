@@ -204,6 +204,7 @@ class grub2 (
   $package_name                = $grub2::params::package_name,
   $package_name_legacy         = $grub2::params::package_name_legacy,
   $password                    = $grub2::params::password,
+  $password_file               = $grub2::params::password_file,
   $password_username           = $grub2::params::password_username,
   $password_pbkdf2_hash        = $grub2::params::password_pbkdf2_hash,
   $recordfail_timeout          = $grub2::params::recordfail_timeout,
@@ -248,6 +249,7 @@ class grub2 (
   validate_array($package_name)
   validate_string($package_name_legacy)
   validate_bool($password)
+  validate_absolute_path($password_file)
   validate_string($password_username)
   validate_string($password_pbkdf2_hash)
   validate_integer($recordfail_timeout)
