@@ -5,7 +5,7 @@ class grub2::params {
   $badram                      = ''
   $config_template             = 'grub2/default_grub.erb'
   $cmdline_linux               = ''
-  $cmdline_linux_default       = ''
+  $cmdline_linux_default       = 'quiet'
   $cmdline_linux_recovery      = ''
   $cmdline_xen                 = ''
   $default_entry               = '0'
