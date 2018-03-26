@@ -10,9 +10,8 @@ GRUB_HIDDEN_TIMEOUT=<%= @hidden_timeout %>
 GRUB_HIDDEN_TIMEOUT_QUIET="<%= @hidden_timeout_quiet %>"
 <% end -%>
 GRUB_DISTRIBUTOR=<%= @distributor %>
-<% if !@cmdline_linux_default.empty? -%>
+<% if @cmdline_linux_default != nil -%>
 GRUB_CMDLINE_LINUX_DEFAULT="<%= @cmdline_linux_default %>"
-<% else %>GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 <% end -%>
 <% if !@cmdline_linux_recovery.empty? -%>
 GRUB_CMDLINE_LINUX_RECOVERY="<%= @cmdline_linux_recovery %>"

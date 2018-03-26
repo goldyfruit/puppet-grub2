@@ -22,7 +22,7 @@
 #
 # [*cmdline_linux_default*]
 #   Arguments passed to the kernel
-#   STRING : Empty by default
+#   STRING : 'quiet'
 #
 # [*cmdline_linux_recovery*]
 #   Arguments passed to the kernel
