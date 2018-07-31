@@ -102,4 +102,5 @@ GRUB_BACKGROUND="<%= @background_image %>"
 # Each module will be loaded as early as possible, at the start of grub.cfg
 <% if !@preload_modules.empty? -%>
 GRUB_PRELOAD_MODULES="<%= @preload_modules %>"
+<% else %>#GRUB_PRELOAD_MODULES=""
 <% end -%>
