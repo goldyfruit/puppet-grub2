@@ -105,6 +105,10 @@
 #   Password hash generated via grub-mkpasswd-pbkdf2 or grub2-mkpasswd-pbkdf2 commands
 #   STRING : 'present'
 #
+# ['preload_modules']
+#   Preload additional modules
+#   STRING : Empty by default
+#
 # [*recordfail_timeout*]
 #   Set default timeout value for GRUB.
 #   Without this set, headless machines may stall during boot
@@ -207,6 +211,7 @@ class grub2 (
   $password_file               = $grub2::params::password_file,
   $password_username           = $grub2::params::password_username,
   $password_pbkdf2_hash        = $grub2::params::password_pbkdf2_hash,
+  $preload_modules             = $grub2::params::preload_modules,
   $recordfail_timeout          = $grub2::params::recordfail_timeout,
   $save_default                = $grub2::params::save_default,
   $serial_command              = $grub2::params::serial_command,
@@ -252,6 +257,7 @@ class grub2 (
   validate_absolute_path($password_file)
   validate_string($password_username)
   validate_string($password_pbkdf2_hash)
+  validate_string($preload_modules)
   validate_integer($recordfail_timeout)
   validate_bool($save_default)
   validate_string($serial_command)

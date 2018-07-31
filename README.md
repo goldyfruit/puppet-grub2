@@ -114,6 +114,10 @@ This module manages GRUB 2 bootloader
 - Set PBKDF2 password hash generated via grub-mkpasswd-pbkdf2 or grub2-mkpasswd-pbkdf2 commands
 - **STRING** : *Empty by default*
 
+#### preload_modules
+- Preload additional modules
+- **STRING** : *Empty by default*
+
 #### recordfail_timeout
 - Set default timeout value for GRUB2.
   Useful to stop headless machines stalling during boot.

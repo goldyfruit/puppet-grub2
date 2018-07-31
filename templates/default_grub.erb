@@ -97,3 +97,9 @@ GRUB_SAVEDEFAULT="<%= @save_default %>"
 <% if @background_image -%>
 GRUB_BACKGROUND="<%= @background_image %>"
 <% end -%>
+
+# This option may be set to a list of GRUB module names separated by spaces
+# Each module will be loaded as early as possible, at the start of grub.cfg
+<% if !@preload_modules.empty? -%>
+GRUB_PRELOAD_MODULES="<%= @preload_modules %>"
+<% end -%>
