@@ -26,6 +26,7 @@ class grub2::params {
   $password_username           = ''
   $password_pbkdf2_hash        = ''
   $password_template           = 'grub2/50_password.erb'
+  $preload_modules             = ''
   $recordfail_timeout          = 5
   $save_default                = false
   $serial_command              = ''
