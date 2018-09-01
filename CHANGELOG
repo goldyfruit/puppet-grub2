@@ -1,3 +1,11 @@
+2018-01-09  Matthias Baur - baurmatt <m.baur@syseleven.de> 1.0.8
+            Marc Rumo <marc.rumo@kudelskisecurity.com>
+            wkr <wkr@netzmarkt.de>
+  - update_binary not called when only password related parameter changes
+  - Allow empty cmdline_linux_default
+  - Fix module for non-password setups
+  - New parameter GRUB_PRELOAD_MODULES adde
+
 2017-23-05  Florian Klink - flokli <flokli@flokli.de> 1.0.7
             Theo Chatzimichos - tampakrap <tampakrap@gmail.com>
             Michael Hanselmann - hansmi <public@hansmi.ch>
