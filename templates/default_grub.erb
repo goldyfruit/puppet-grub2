@@ -104,3 +104,9 @@ GRUB_BACKGROUND="<%= @background_image %>"
 GRUB_PRELOAD_MODULES="<%= @preload_modules %>"
 <% else %>#GRUB_PRELOAD_MODULES=""
 <% end -%>
+
+# The option controls if grub should use the BootLoaderSpec configfiles
+# eg. under /boot/loader/entries
+<% if @enable_blscfg -%>
+GRUB_ENABLE_BLSCFG="true"
+<% end -%>
