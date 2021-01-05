@@ -182,96 +182,49 @@
 # limitations under the License.
 #
 class grub2 (
-  $background_image            = $grub2::params::background_image,
-  $badram                      = $grub2::params::badram,
-  $cmdline_linux               = $grub2::params::cmdline_linux,
-  $cmdline_linux_default       = $grub2::params::cmdline_linux_default,
-  $cmdline_linux_recovery      = $grub2::params::cmdline_linux_recovery,
-  $cmdline_xen                 = $grub2::params::cmdline_xen,
-  $config_file                 = $grub2::params::config_file,
-  $config_template             = $grub2::params::config_template,
-  $default_entry               = $grub2::params::default_entry,
-  $device_install              = $grub2::params::device_install,
-  $disable_os_prober           = $grub2::params::disable_os_prober,
-  $disable_recovery            = $grub2::params::disable_recovery,
-  $disable_submenu             = $grub2::params::disable_submenu,
-  $disable_uuid                = $grub2::params::disable_uuid,
-  $distributor                 = $grub2::params::distributor,
-  $enable_cryptodisk           = $grub2::params::enable_cryptodisk,
-  $gfxmode                     = $grub2::params::gfxmode,
-  $hidden_timeout              = $grub2::params::hidden_timeout,
-  $hidden_timeout_quiet        = $grub2::params::hidden_timeout_quiet,
-  $install_binary              = $grub2::params::install_binary,
-  $install_grub                = $grub2::params::install_grub,
-  $remove_grub_legacy          = $grub2::params::remove_grub_legacy,
-  $package_ensure              = $grub2::params::package_ensure,
-  $package_name                = $grub2::params::package_name,
-  $package_name_legacy         = $grub2::params::package_name_legacy,
-  $password                    = $grub2::params::password,
-  $password_file               = $grub2::params::password_file,
-  $password_username           = $grub2::params::password_username,
-  $password_pbkdf2_hash        = $grub2::params::password_pbkdf2_hash,
-  $preload_modules             = $grub2::params::preload_modules,
-  $recordfail_timeout          = $grub2::params::recordfail_timeout,
-  $save_default                = $grub2::params::save_default,
-  $serial_command              = $grub2::params::serial_command,
-  $suse_btrfs_snapshot_booting = $grub2::params::suse_btrfs_snapshot_booting,
-  $terminal                    = $grub2::params::terminal,
-  $timeout                     = $grub2::params::timeout,
-  $tune                        = $grub2::params::tune,
-  $update_binary               = $grub2::params::update_binary,
-  $update_grub                 = $grub2::params::update_grub,
+  String $background_image                          = $grub2::params::background_image,
+  String $badram                                    = $grub2::params::badram,
+  String $cmdline_linux                             = $grub2::params::cmdline_linux,
+  String $cmdline_linux_default                     = $grub2::params::cmdline_linux_default,
+  String $cmdline_linux_recovery                    = $grub2::params::cmdline_linux_recovery,
+  String $cmdline_xen                               = $grub2::params::cmdline_xen,
+  Stdlib::Absolutepath $config_file                 = $grub2::params::config_file,
+  String $config_template                           = $grub2::params::config_template,
+  String $default_entry                             = $grub2::params::default_entry,
+  Array $device_install                             = $grub2::params::device_install,
+  Boolean $disable_os_prober                        = $grub2::params::disable_os_prober,
+  Boolean $disable_recovery                         = $grub2::params::disable_recovery,
+  Boolean $disable_submenu                          = $grub2::params::disable_submenu,
+  Boolean $disable_uuid                             = $grub2::params::disable_uuid,
+  String $distributor                               = $grub2::params::distributor,
+  Boolean $enable_cryptodisk                        = $grub2::params::enable_cryptodisk,
+  String $gfxmode                                   = $grub2::params::gfxmode,
+  Optional[String] $hidden_timeout                  = $grub2::params::hidden_timeout,
+  Boolean $hidden_timeout_quiet                     = $grub2::params::hidden_timeout_quiet,
+  Stdlib::Absolutepath $install_binary              = $grub2::params::install_binary,
+  Boolean $install_grub                             = $grub2::params::install_grub,
+  Boolean $remove_grub_legacy                       = $grub2::params::remove_grub_legacy,
+  String $package_ensure                            = $grub2::params::package_ensure,
+  Array $package_name                               = $grub2::params::package_name,
+  String $package_name_legacy                       = $grub2::params::package_name_legacy,
+  Boolean $password                                 = $grub2::params::password,
+  Stdlib::Absolutepath $password_file               = $grub2::params::password_file,
+  String $password_username                         = $grub2::params::password_username,
+  String $password_pbkdf2_hash                      = $grub2::params::password_pbkdf2_hash,
+  String $preload_modules                           = $grub2::params::preload_modules,
+  Integer $recordfail_timeout                       = $grub2::params::recordfail_timeout,
+  Boolean $save_default                             = $grub2::params::save_default,
+  String $serial_command                            = $grub2::params::serial_command,
+  Boolean $suse_btrfs_snapshot_booting              = $grub2::params::suse_btrfs_snapshot_booting,
+  String $terminal                                  = $grub2::params::terminal,
+  Integer $timeout                                  = $grub2::params::timeout,
+  String $tune                                      = $grub2::params::tune,
+  Stdlib::Absolutepath $update_binary               = $grub2::params::update_binary,
+  Boolean $update_grub                              = $grub2::params::update_grub,
 ) inherits grub2::params {
-
-  validate_string($background_image)
-  validate_string($badram)
-  validate_string($cmdline_linux)
-  validate_string($cmdline_linux_default)
-  validate_string($cmdline_linux_recovery)
-  validate_string($cmdline_xen)
-  validate_absolute_path($config_file)
-  validate_string($config_template)
-  validate_string($default_entry)
-  if is_string($device_install) {
-    validate_string($device_install)
-    warning('String type for this parameter is deprecated, please use an Array instead. See documentation at https://github.com/goldyfruit/puppet-grub2#device_install.')
-  } else {
-    validate_array($device_install)
-  }
-  validate_bool($disable_os_prober)
-  validate_bool($disable_recovery)
-  validate_bool($disable_submenu)
-  validate_bool($disable_uuid)
-  validate_string($distributor)
-  validate_bool($enable_cryptodisk)
-  validate_string($gfxmode)
-  validate_string($hidden_timeout)
-  validate_bool($hidden_timeout_quiet)
-  validate_absolute_path($install_binary)
-  validate_bool($install_grub)
-  validate_bool($remove_grub_legacy)
-  validate_string($package_ensure)
-  validate_array($package_name)
-  validate_string($package_name_legacy)
-  validate_bool($password)
-  validate_absolute_path($password_file)
-  validate_string($password_username)
-  validate_string($password_pbkdf2_hash)
-  validate_string($preload_modules)
-  validate_integer($recordfail_timeout)
-  validate_bool($save_default)
-  validate_string($serial_command)
-  validate_bool($suse_btrfs_snapshot_booting)
-  validate_string($terminal)
-  validate_integer($timeout)
-  validate_string($tune)
-  validate_absolute_path($update_binary)
-  validate_bool($update_grub)
-
   anchor { 'grub2::begin': }
   -> class { '::grub2::install': }
   ~> class { '::grub2::config': }
   -> class { '::grub2::update': }
   anchor { 'grub2::end': }
-
 }
