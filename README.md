@@ -74,6 +74,10 @@ This module manages GRUB 2 bootloader
   commands needed to access them during boot
 - **BOOL** : *false*
 
+#### enable_blscfg
+- Define if BootLoaderSpec configuration should be used
+- **BOOL** : *false*
+
 #### gfxmode
 - Define which resolution should be used if VBE is used
 - **STRING** : *Empty by default*

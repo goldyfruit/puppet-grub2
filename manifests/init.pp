@@ -14,7 +14,7 @@
 #
 # [*enable_blscfg*]
 #   Define if BootLoaderSpec configuration should be used
-#   STRING : Empty by default
+#   BOOL : False
 #
 # [*config_template*]
 #   Template used for GRUB config file
