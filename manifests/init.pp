@@ -187,7 +187,7 @@
 #
 class grub2 (
   String $background_image                          = $grub2::params::background_image,
-  String $badram                                    = $grub2::params::badram,
+  Optional[String] $badram                          = $grub2::params::badram,
   Boolean $enable_blscfg                            = $grub2::params::enable_blscfg,
   String $cmdline_linux                             = $grub2::params::cmdline_linux,
   String $cmdline_linux_default                     = $grub2::params::cmdline_linux_default,
