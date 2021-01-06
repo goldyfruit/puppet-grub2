@@ -211,7 +211,7 @@ class grub2 (
   Boolean $remove_grub_legacy                       = $grub2::params::remove_grub_legacy,
   String $package_ensure                            = $grub2::params::package_ensure,
   Array $package_name                               = $grub2::params::package_name,
-  String $package_name_legacy                       = $grub2::params::package_name_legacy,
+  Optional[String] $package_name_legacy             = $grub2::params::package_name_legacy,
   Boolean $password                                 = $grub2::params::password,
   Stdlib::Absolutepath $password_file               = $grub2::params::password_file,
   String $password_username                         = $grub2::params::password_username,
