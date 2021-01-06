@@ -1,3 +1,14 @@
+2021-06-01  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.9
+            Steffen Zieger <github@saz.sh>
+            Adrian Eib <adrian.eib@showmax.com>
+            Benedikt Braunger <b.braunger@syseleven.de>
+  - Update stdlib dependency to include versions up to 6.0.0
+  - Remove deprecated functions from Stdlib and use Puppet data types
+  - Added GRUB blscfg option
+  - Change package_name_legacy to optional
+  - Support Puppet 6
+  - Fix CI (Rubocop, Travis)
+
 2018-01-09  Matthias Baur - baurmatt <m.baur@syseleven.de> 1.0.8
             Marc Rumo <marc.rumo@kudelskisecurity.com>
             wkr <wkr@netzmarkt.de>
