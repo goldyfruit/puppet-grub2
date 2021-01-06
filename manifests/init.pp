@@ -12,6 +12,10 @@
 #   Define some memory addresses for BadRAM filtering
 #   STRING : Empty by default
 #
+# [*enable_blscfg*]
+#   Define if BootLoaderSpec configuration should be used
+#   STRING : Empty by default
+#
 # [*config_template*]
 #   Template used for GRUB config file
 #   STRING : 'grub2/default_grub.erb'
@@ -184,6 +188,7 @@
 class grub2 (
   String $background_image                          = $grub2::params::background_image,
   String $badram                                    = $grub2::params::badram,
+  Boolean $enable_blscfg                            = $grub2::params::enable_blscfg,
   String $cmdline_linux                             = $grub2::params::cmdline_linux,
   String $cmdline_linux_default                     = $grub2::params::cmdline_linux_default,
   String $cmdline_linux_recovery                    = $grub2::params::cmdline_linux_recovery,

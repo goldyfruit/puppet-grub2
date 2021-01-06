@@ -3,6 +3,7 @@ class grub2::params {
 
   $background_image            = ''
   $badram                      = ''
+  $enable_blscfg               = false
   $config_template             = 'grub2/default_grub.erb'
   $cmdline_linux               = ''
   $cmdline_linux_default       = 'quiet'
