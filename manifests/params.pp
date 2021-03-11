@@ -39,44 +39,69 @@ class grub2::params {
 
   case $::osfamily {
     'Debian': {
+      if $efi {
+        $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg'
+      } else {
+        $install_binary    = '/usr/sbin/grub-install'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
+      }
       $config_file         = '/etc/default/grub'
       $distributor         = '$(lsb_release -i -s 2> /dev/null || echo Debian)'
-      $install_binary      = '/usr/sbin/grub-install'
       $package_name        = [ 'grub-pc', 'grub-common' ]
       $package_name_legacy = 'grub-legacy'
-      $update_binary       = '/usr/sbin/update-grub'
     }
     'Redhat': {
+      if $efi {
+        $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg'
+      } else {
+        $install_binary    = '/usr/sbin/grub-install'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
+      }
       $config_file         = '/etc/default/grub'
       $distributor         = "$(sed 's, release .*$,,g' /etc/system-release)"
-      $install_binary      = '/usr/sbin/grub2-install'
       $package_name        = [ 'grub2', 'grub2-tools' ]
       $package_name_legacy = undef
-      $update_binary       = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
     }
     'Gentoo': {
+      if $efi {
+        $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/efi/EFI/gentoo/grub.cfg'
+      } else {
+        $install_binary    = '/usr/sbin/grub2-install'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
+      }
       $config_file         = '/etc/default/grub'
       $distributor         = 'Gentoo'
-      $install_binary      = '/usr/sbin/grub2-install'
       $package_name        = [ 'sys-boot/grub' ]
       $package_name_legacy = undef
-      $update_binary       = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
     }
     'Suse': {
+      if $efi {
+        $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/efi/EFI/gentoo/grub.cfg'
+      } else {
+        $install_binary    = '/usr/sbin/grub2-install'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
+      }
       $config_file         = '/etc/default/grub'
       $distributor         = '$(lsb_release -i -r -s 2> /dev/null || echo SUSE)'
-      $install_binary      = '/usr/sbin/grub2-install'
       $package_name        = [ 'grub2' ]
       $package_name_legacy = undef
-      $update_binary       = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
     }
     'Archlinux': {
+      if $efi {
+        $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg'
+      } else {
+        $install_binary    = '/usr/sbin/grub-install'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
+      }
       $config_file         = '/etc/default/grub'
       $distributor         = '$(lsb_release -i -r -s 2> /dev/null || echo Archlinux)'
-      $install_binary      = '/usr/bin/grub-install'
       $package_name        = [ 'grub' ]
       $package_name_legacy = undef
-      $update_binary       = '/usr/bin/grub-mkconfig -o /boot/grub/grub.cfg'
     }
     default: {
       fail("The ${module_name} module is not supported on ${::operatingsystem}")
