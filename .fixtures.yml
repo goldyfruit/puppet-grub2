@@ -1,5 +1,6 @@
 fixtures:
   repositories:
     stdlib: "git://github.com/puppetlabs/puppetlabs-stdlib"
+    efi: "https://github.com/jcpunk/puppet-efi"
   symlinks:
     grub2: "#{source_dir}"
