@@ -53,11 +53,11 @@ class grub2::params {
     }
     'Redhat': {
       if $efi {
-        $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
-        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg'
+        $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg'
       } else {
-        $install_binary    = '/usr/sbin/grub-install'
-        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
+        $install_binary    = '/usr/sbin/grub2-install'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
       }
       $config_file         = '/etc/default/grub'
       $distributor         = "$(sed 's, release .*$,,g' /etc/system-release)"
@@ -80,7 +80,7 @@ class grub2::params {
     'Suse': {
       if $efi {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
-        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/efi/EFI/gentoo/grub.cfg'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/efi/EFI/suse/grub.cfg'
       } else {
         $install_binary    = '/usr/sbin/grub2-install'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
@@ -93,7 +93,7 @@ class grub2::params {
     'Archlinux': {
       if $efi {
         $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
-        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/efi/EFI/ubuntu/grub.cfg'
+        $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/efi/EFI/archlinux/grub.cfg'
       } else {
         $install_binary    = '/usr/sbin/grub-install'
         $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
