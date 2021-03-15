@@ -187,3 +187,11 @@ your Hiera files:
 ```yaml
 grub2::timeout: 10
 ```
+
+
+### efi support
+
+Module will now take into account whether a system has booted with BIOS or with (U)EFI
+and will then place the `grub.cfg` file in the correct directory.
+The `efi` fact represents whether a system has booted with EFI or BIOS:
+*true*/*false* depending on the system
