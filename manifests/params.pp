@@ -57,7 +57,7 @@ class grub2::params {
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg'
       } else {
         $install_binary    = '/usr/sbin/grub2-install'
-        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
+        $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
       }
       $config_file         = '/etc/default/grub'
       $distributor         = "$(sed 's, release .*$,,g' /etc/system-release)"
