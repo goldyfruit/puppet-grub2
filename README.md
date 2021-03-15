@@ -4,7 +4,7 @@
 [![Puppet Forge](http://img.shields.io/puppetforge/v/goldyfruit/grub2.svg)](https://forge.puppetlabs.com/goldyfruit/grub2)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-This module manages GRUB 2 bootloader
+This module manages GRUB 2 bootloader (Hiera & EFI)
 
 ## Supported distributions
 - Ubuntu
@@ -188,10 +188,9 @@ your Hiera files:
 grub2::timeout: 10
 ```
 
-
-### efi support
+### EFI support
 
 Module will now take into account whether a system has booted with BIOS or with (U)EFI
 and will then place the `grub.cfg` file in the correct directory.
-The `efi` fact represents whether a system has booted with EFI or BIOS:
-*true*/*false* depending on the system
+
+The `efi` fact represents whether a system has booted with EFI or BIOS and returns a boolean; `true` or `false` depending on the system.

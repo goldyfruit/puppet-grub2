@@ -1,3 +1,8 @@
+2021-15-03  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.10
+            Gurbmeister <@Gurbmeister>
+  - Add EFI support
+  - Fix binary names
+
 2021-06-01  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.9
             Steffen Zieger <github@saz.sh>
             Adrian Eib <adrian.eib@showmax.com>
