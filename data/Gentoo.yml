@@ -1,8 +1,0 @@
----
-grub2::config_file: '/etc/default/grub'
-grub2::distributor: 'Gentoo'
-grub2::install_binary: '/usr/sbin/grub2-install'
-grub2::package_name:
-  - 'sys-boot/grub'
-grub2::package_name_legacy: ~
-grub2::update_binary: '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
