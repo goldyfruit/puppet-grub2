@@ -138,6 +138,10 @@
 #   Define how long (in seconds) that the menu should appear
 #   INTEGER : 5
 #
+# [*timeout_style*]
+#   Define what to display while waiting for timeout to expire
+#   STRING : 'countdown'
+#
 # [*tune*]
 #   Define if GRUB should make a beep when he starts
 #   STRING : Empty by default
@@ -205,7 +209,7 @@ class grub2 (
   Boolean $enable_cryptodisk                        = $grub2::params::enable_cryptodisk,
   String $gfxmode                                   = $grub2::params::gfxmode,
   Optional[String] $hidden_timeout                  = $grub2::params::hidden_timeout,
-  Boolean $hidden_timeout_quiet                     = $grub2::params::hidden_timeout_quiet,
+  Optional[Boolean] $hidden_timeout_quiet           = $grub2::params::hidden_timeout_quiet,
   Stdlib::Absolutepath $install_binary              = $grub2::params::install_binary,
   Boolean $install_grub                             = $grub2::params::install_grub,
   Boolean $remove_grub_legacy                       = $grub2::params::remove_grub_legacy,
@@ -223,10 +227,21 @@ class grub2 (
   Boolean $suse_btrfs_snapshot_booting              = $grub2::params::suse_btrfs_snapshot_booting,
   String $terminal                                  = $grub2::params::terminal,
   Integer $timeout                                  = $grub2::params::timeout,
+  String $timeout_style                             = $grub2::params::timeout_style,
   String $tune                                      = $grub2::params::tune,
   Stdlib::Absolutepath $update_binary               = $grub2::params::update_binary,
   Boolean $update_grub                              = $grub2::params::update_grub,
 ) inherits grub2::params {
+
+  # Warn if timeout_style and either of the hidden_timout values are set, and respect old syntax
+  if defined('$timeout_style') and ( $hidden_timeout_quiet =~ Boolean or $hidden_timeout =~ String) ) {
+    notify { 'Newer timeout_style and at least one of deprecated hidden_timeout(_quiet)? defined at the same time.  Using deprecated syntax, but you should fix this.': }
+    $timeout_style_disable = true
+  } else {
+    $timeout_style_disable = false
+  }
+}
+
   anchor { 'grub2::begin': }
   -> class { '::grub2::install': }
   ~> class { '::grub2::config': }
