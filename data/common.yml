@@ -15,7 +15,7 @@ grub2::disable_uuid: false
 grub2::enable_cryptodisk: false
 grub2::enable_blscfg: false
 grub2::hidden_timeout: ~
-grub2::hidden_timeout_quiet: false
+grub2::hidden_timeout_quiet: ~
 grub2::install_grub: false
 grub2::remove_grub_legacy: false
 grub2::package_ensure: present
