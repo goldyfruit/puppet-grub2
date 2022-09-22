@@ -1,3 +1,5 @@
+2022-09-21  Check the GitHub release to get the changes for the next releases
+
 2021-15-03  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.10
             Gurbmeister <@Gurbmeister>
   - Add EFI support
@@ -25,7 +27,7 @@
 2017-23-05  Florian Klink - flokli <flokli@flokli.de> 1.0.7
             Theo Chatzimichos - tampakrap <tampakrap@gmail.com>
             Michael Hanselmann - hansmi <public@hansmi.ch>
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 
+            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
   - Add the SUSE_BTRFS_SNAPSHOT_BOOTING option
   - Add support for encrypted volumes
   - Install GRUB only when there is a package change
