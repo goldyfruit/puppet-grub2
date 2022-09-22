@@ -18,7 +18,7 @@ class grub2::params {
   $enable_cryptodisk           = false
   $gfxmode                     = ''
   $hidden_timeout              = undef
-  $hidden_timeout_quiet        = false
+  $hidden_timeout_quiet        = undef
   $install_grub                = false
   $remove_grub_legacy          = false
   $package_ensure              = 'present'
@@ -34,6 +34,7 @@ class grub2::params {
   $suse_btrfs_snapshot_booting = false
   $terminal                    = ''
   $timeout                     = 5
+  $timeout_style               = 'countdown'
   $tune                        = ''
   $update_grub                 = true
 

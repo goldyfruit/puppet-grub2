@@ -148,6 +148,10 @@ This module manages GRUB 2 bootloader (Hiera & EFI)
 - Define how long (in seconds) that the menu should appear
 - **INTEGER** : *5*
 
+#### timeout_style
+- Define what to display while waiting for timeout to expire
+- **STRING** : *'countdown'*
+
 #### tune
 - Define if GRUB should make a beep when he starts
 - **STRING** : *Empty by default*
