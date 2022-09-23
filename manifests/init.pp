@@ -232,19 +232,17 @@ class grub2 (
   Stdlib::Absolutepath $update_binary               = $grub2::params::update_binary,
   Boolean $update_grub                              = $grub2::params::update_grub,
 ) inherits grub2::params {
-
   # Warn if timeout_style and either of the hidden_timout values are set, and respect old syntax
-  if defined('$timeout_style') and ( $hidden_timeout_quiet =~ Boolean or $hidden_timeout =~ String) ) {
-    notify { 'Newer timeout_style and at least one of deprecated hidden_timeout(_quiet)? defined at the same time.  Using deprecated syntax, but you should fix this.': }
+  if defined('$timeout_style') and ( $hidden_timeout_quiet =~ Boolean or $hidden_timeout =~ String) {
+    notify { 'Newer timeout_style and at least one of deprecated hidden_timeout(_quiet)? defined at the same time. You should fix this.': }
     $timeout_style_disable = true
   } else {
     $timeout_style_disable = false
   }
-}
 
   anchor { 'grub2::begin': }
-  -> class { '::grub2::install': }
-  ~> class { '::grub2::config': }
-  -> class { '::grub2::update': }
+  -> class { 'grub2::install': }
+  ~> class { 'grub2::config': }
+  -> class { 'grub2::update': }
   anchor { 'grub2::end': }
 }
