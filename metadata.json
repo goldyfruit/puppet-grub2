@@ -1,6 +1,6 @@
 {
   "name": "goldyfruit-grub2",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "author": "goldyfruit",
   "summary": "Puppet module for managing GRUB2",
   "license": "Apache-2.0",
@@ -54,6 +54,5 @@
     "linux",
     "mbr"
   ],
-  "description": "Puppet module for managing GRUB2",
   "pdk-version": "1.8.0"
 }
