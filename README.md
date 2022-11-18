@@ -15,6 +15,12 @@ This module manages GRUB 2 bootloader (Hiera & EFI)
 - SLES / OpenSuse
 - Arch Linux
 
+## Setup requirements
+
+This module has the following dependencies:
+
+* [jcpunk-efi](https://forge.puppet.com/modules/jcpunk/efi)
+
 ## Parameters
 
 #### background_image
