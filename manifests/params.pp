@@ -38,7 +38,7 @@ class grub2::params {
   $tune                        = ''
   $update_grub                 = true
 
-  case $::osfamily {
+  case $::facts['os']['family'] {
     'Debian': {
       if $efi {
         $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
@@ -105,7 +105,7 @@ class grub2::params {
       $package_name_legacy = undef
     }
     default: {
-      fail("The ${module_name} module is not supported on ${::operatingsystem}")
+      fail("The ${module_name} module is not supported on ${::facts['os']['family']}")
     }
   }
 
