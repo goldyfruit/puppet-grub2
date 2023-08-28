@@ -1,9 +1,9 @@
 ---
-grub2::config_file: '/etc/default/grub'
-grub2::distributor: '$(lsb_release -i -s 2> /dev/null || echo Debian)'
-grub2::install_binary: '/usr/sbin/grub-install'
+grub2::config_file: "/etc/default/grub"
+grub2::distributor: "$(lsb_release -i -s 2> /dev/null || echo Debian)"
+grub2::install_binary: "/usr/sbin/grub-install"
 grub2::package_name:
-  - 'grub-pc'
-  - 'grub-common'
-grub2::package_name_legacy: 'grub-legacy'
-grub2::update_binary: '/usr/sbin/update-grub'
+  - "grub-pc"
+  - "grub-common"
+grub2::package_name_legacy: "grub-legacy"
+grub2::update_binary: "/usr/sbin/update-grub"
