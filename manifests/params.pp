@@ -1,6 +1,5 @@
 # class: grub2::params: See README for documentation
 class grub2::params {
-
   $background_image            = ''
   $badram                      = ''
   $enable_blscfg               = false
@@ -40,7 +39,7 @@ class grub2::params {
 
   case $::facts['os']['family'] {
     'Debian': {
-      if $efi {
+      if $::efi {
         $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
       } else {
@@ -49,11 +48,11 @@ class grub2::params {
       }
       $config_file         = '/etc/default/grub'
       $distributor         = '$(lsb_release -i -s 2> /dev/null || echo Debian)'
-      $package_name        = [ 'grub-pc', 'grub-common' ]
+      $package_name        = ['grub-pc', 'grub-common']
       $package_name_legacy = 'grub-legacy'
     }
     'Redhat': {
-      if $efi {
+      if $::efi {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
       } else {
@@ -62,11 +61,11 @@ class grub2::params {
       }
       $config_file         = '/etc/default/grub'
       $distributor         = "$(sed 's, release .*$,,g' /etc/system-release)"
-      $package_name        = [ 'grub2', 'grub2-tools' ]
+      $package_name        = ['grub2', 'grub2-tools']
       $package_name_legacy = undef
     }
     'Gentoo': {
-      if $efi {
+      if $::efi {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
       } else {
@@ -75,11 +74,11 @@ class grub2::params {
       }
       $config_file         = '/etc/default/grub'
       $distributor         = 'Gentoo'
-      $package_name        = [ 'sys-boot/grub' ]
+      $package_name        = ['sys-boot/grub']
       $package_name_legacy = undef
     }
     'Suse': {
-      if $efi {
+      if $::efi {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
       } else {
@@ -88,11 +87,11 @@ class grub2::params {
       }
       $config_file         = '/etc/default/grub'
       $distributor         = '$(lsb_release -i -r -s 2> /dev/null || echo SUSE)'
-      $package_name        = [ 'grub2' ]
+      $package_name        = ['grub2']
       $package_name_legacy = undef
     }
     'Archlinux': {
-      if $efi {
+      if $::efi {
         $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
       } else {
@@ -101,12 +100,11 @@ class grub2::params {
       }
       $config_file         = '/etc/default/grub'
       $distributor         = '$(lsb_release -i -r -s 2> /dev/null || echo Archlinux)'
-      $package_name        = [ 'grub' ]
+      $package_name        = ['grub']
       $package_name_legacy = undef
     }
     default: {
       fail("The ${module_name} module is not supported on ${::facts['os']['family']}")
     }
   }
-
 }
