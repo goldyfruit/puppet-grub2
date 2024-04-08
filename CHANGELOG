@@ -1,20 +1,22 @@
-2023-08-27  Improve Forge quality score - @goldyfruit - 1.0.16
+2024-04-08 support puppet8 - @vicinus - 1.0.17
 
-2023-08-27  List deps in README.md - @weastur - 1.0.15
-            Don't use legacy facts - @pschichtel
+2023-08-27 Improve Forge quality score - @goldyfruit - 1.0.16
 
-2022-09-21  Check the GitHub release to get the changes for the next releases
+2023-08-27 List deps in README.md - @weastur - 1.0.15
+Don't use legacy facts - @pschichtel
 
-2021-15-03  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.10
-            Gurbmeister <@Gurbmeister>
+2022-09-21 Check the GitHub release to get the changes for the next releases
+
+2021-15-03 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.10
+Gurbmeister <@Gurbmeister>
 
 - Add EFI support
 - Fix binary names
 
-2021-06-01  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.9
-            Steffen Zieger <github@saz.sh>
-            Adrian Eib <adrian.eib@showmax.com>
-            Benedikt Braunger <b.braunger@syseleven.de>
+2021-06-01 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.9
+Steffen Zieger <github@saz.sh>
+Adrian Eib <adrian.eib@showmax.com>
+Benedikt Braunger <b.braunger@syseleven.de>
 
 - Update stdlib dependency to include versions up to 6.0.0
 - Remove deprecated functions from Stdlib and use Puppet data types
@@ -23,19 +25,19 @@
 - Support Puppet 6
 - Fix CI (Rubocop, Travis)
 
-2018-01-09  Matthias Baur - baurmatt <m.baur@syseleven.de> 1.0.8
-            Marc Rumo <marc.rumo@kudelskisecurity.com>
-            wkr <wkr@netzmarkt.de>
+2018-01-09 Matthias Baur - baurmatt <m.baur@syseleven.de> 1.0.8
+Marc Rumo <marc.rumo@kudelskisecurity.com>
+wkr <wkr@netzmarkt.de>
 
 - update_binary not called when only password related parameter changes
 - Allow empty cmdline_linux_default
 - Fix module for non-password setups
 - New parameter GRUB_PRELOAD_MODULES adde
 
-2017-23-05  Florian Klink - flokli <flokli@flokli.de> 1.0.7
-            Theo Chatzimichos - tampakrap <tampakrap@gmail.com>
-            Michael Hanselmann - hansmi <public@hansmi.ch>
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+2017-23-05 Florian Klink - flokli <flokli@flokli.de> 1.0.7
+Theo Chatzimichos - tampakrap <tampakrap@gmail.com>
+Michael Hanselmann - hansmi <public@hansmi.ch>
+Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
 
 - Add the SUSE_BTRFS_SNAPSHOT_BOOTING option
 - Add support for encrypted volumes
@@ -43,16 +45,16 @@
 - Add the possibility to remove grub-legacy package
 - Make Travis works with Puppet 4.x
 
-2017-14-03  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.6
+2017-14-03 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.6
 
 - Puppet 3.x is now deprecated, this module requires Puppet 4.x
 
-2017-06-02  Sebastien Badia - sbadia <https://keybase.io/sbadia> 1.0.5
+2017-06-02 Sebastien Badia - sbadia <https://keybase.io/sbadia> 1.0.5
 
 - device_install is now an array of devices in order to support more than one device.
 
-2016-20-09  Phillip Schichtel - pschichtel <phillip.contact@schich.tel> 1.0.4
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+2016-20-09 Phillip Schichtel - pschichtel <phillip.contact@schich.tel> 1.0.4
+Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
 
 - Add support for Arch Linux (thanks pschichtel)
 - Fix issue related to password:
@@ -60,7 +62,7 @@
 - Improve Travis and Rake support
 - Jump to 1.0.4 version because I did a mistake with 1.0.3 version
 
-2016-17-06  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.2
+2016-17-06 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 1.0.2
 
 - Add username and PBKDF2 password support
 - Fix some typos:
@@ -68,7 +70,7 @@
   - params.pp
   - README.md
 
-2016-01-04  Remigiusz Świc - ex3cv <remigiusz@swic.net.pl> 1.0.1
+2016-01-04 Remigiusz Świc - ex3cv <remigiusz@swic.net.pl> 1.0.1
 
 - Fix the validation:
   - Hidden_timeout_quiet is a boolean
@@ -77,15 +79,15 @@
 - Default value fix of "hidden_timeout_quiet" to false as undef is
 - Documentation update around changes made in the module
 
-2015-11-24  Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 1.0.0
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+2015-11-24 Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 1.0.0
+Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
 
 - Fix the validation for save_default value
 - Add missing comment about background_image option
 - Module pass from 0.0.x version to 1.0.x version
 
-2015-11-22  Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 0.0.8
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+2015-11-22 Theo Chatzimichos - tampakrap <tampakrap@gmail.com> 0.0.8
+Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
 
 - Add support for SLES / Suse distribution
 - Add GRUB_CMDLINE_LINUX_RECOVERY option
@@ -93,36 +95,36 @@
 - Add GRUB_SAVEDEFAULT option
 - Add GRUB_BACKGROUND option
 
-2015-11-16  Steffen Zieger - saz <github@saz.sh> 0.0.7
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+2015-11-16 Steffen Zieger - saz <github@saz.sh> 0.0.7
+Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
 
 - Add support for Gentoo distribution
 - Update the Readme
 
-2015-10-06  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.6
+2015-10-06 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.6
 
 - Fix default value for recordfail_timeout
 
-2015-10-06  Andrew Langhorn - ajlanghorn <andrew@ajlanghorn.com> 0.0.5
-            Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
-            Teran McKinney <sega01@go-beyond.org>
+2015-10-06 Andrew Langhorn - ajlanghorn <andrew@ajlanghorn.com> 0.0.5
+Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com>
+Teran McKinney <sega01@go-beyond.org>
 
 - Add GRUB_RECORDFAIL_TIMEOUT options
 - Add GRUB_CMDLINE_XEN options
 - Update metadata.json about the minimum stdlib version
 - Update documentation about Hiera usage and GRUB_RECORDFAIL_TIMEOUT example
 
-2015-10-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.4
+2015-10-05 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.4
 
 - This version fix an issue on the Puppet Forge, the module is not download as the lastest version
 
-2015-08-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.3
+2015-08-05 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.3
 
 - Add GRUB_HIDDEN_TIMEOUT and GRUB_HIDDEN_TIMEOUT_QUIET options
 - Replace Puppet Modulefile by metadata.json
 - Make Puppet module compliant with Lint, Parser and Travis
 
-2015-08-05  Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.2
+2015-08-05 Gaëtan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.2
 
 - Redhat distribution are now supported
 - Replace static distributor value by a dynamic value
@@ -130,6 +132,6 @@
 - Fix update_grub always triggered issue: <https://github.com/goldyfruit/puppet-grub2/issues/5>
 - Fix some typos and make it compliant with puppet-lint
 
-2014-03-03  Gaetan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.1
+2014-03-03 Gaetan Trellu - goldyfruit <gaetan.trellu@incloudus.com> 0.0.1
 
 - Initial Commit
