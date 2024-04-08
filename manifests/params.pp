@@ -39,7 +39,7 @@ class grub2::params {
 
   case $::facts['os']['family'] {
     'Debian': {
-      if $::efi {
+      if 'efi' in $facts {
         $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
       } else {
@@ -52,7 +52,7 @@ class grub2::params {
       $package_name_legacy = 'grub-legacy'
     }
     'Redhat': {
-      if $::efi {
+      if 'efi' in $facts {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
       } else {
@@ -65,7 +65,7 @@ class grub2::params {
       $package_name_legacy = undef
     }
     'Gentoo': {
-      if $::efi {
+      if 'efi' in $facts {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub/grub.cfg'
       } else {
@@ -78,7 +78,7 @@ class grub2::params {
       $package_name_legacy = undef
     }
     'Suse': {
-      if $::efi {
+      if 'efi' in $facts {
         $install_binary    = '/usr/sbin/grub2-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
       } else {
@@ -91,7 +91,7 @@ class grub2::params {
       $package_name_legacy = undef
     }
     'Archlinux': {
-      if $::efi {
+      if 'efi' in $facts {
         $install_binary    = '/usr/sbin/grub-install --efi-directory=/boot/efi'
         $update_binary     = '/usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg'
       } else {
