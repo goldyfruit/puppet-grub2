@@ -39,4 +39,9 @@ jobs:
         run: bundle exec rake litmus:acceptance:parallel
       - name: Tear down
         if: always()
-        run: bundle exec rake litmus:tear_down
+        run: |
+          if [ -f spec/fixtures/litmus_inventory.yaml ]; then
+            bundle exec rake litmus:tear_down
+          else
+            echo "No inventory found, skipping tear_down"
+          fi
