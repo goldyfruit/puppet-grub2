@@ -30,3 +30,5 @@ jobs:
         run: bundle exec rake metadata_lint
       - name: Run specs
         run: PUPPET_GEM_VERSION="${{ matrix.puppet_gem }}" bundle exec rake spec
+      - name: Generate API docs
+        run: bundle exec puppet strings generate --out docs/api.md
