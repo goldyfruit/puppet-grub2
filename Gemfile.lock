@@ -427,7 +427,7 @@ PLATFORMS
 
 DEPENDENCIES
   fast_gettext
-  puppet (= 8.10.0)
+  puppet (~> 8.0)
   puppet-module-posix-default-r2.7
   puppet-module-posix-dev-r2.7
   puppet-module-win-default-r2.7
