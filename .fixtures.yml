@@ -4,5 +4,6 @@ fixtures:
     efi: "https://github.com/jcpunk/puppet-efi.git"
     augeasproviders_grub: "https://github.com/hercules-team/augeasproviders_grub.git"
     provision: "https://github.com/puppetlabs/provision.git"
+    puppet_agent: "https://github.com/puppetlabs/puppetlabs-puppet_agent.git"
   symlinks:
     grub2: "#{source_dir}"
