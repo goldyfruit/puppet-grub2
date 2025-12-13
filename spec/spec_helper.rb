@@ -1,3 +1,10 @@
+require 'rspec/core'
+
+# Set mock framework before puppetlabs_spec_helper loads to avoid mocha deprecation noise
+RSpec.configure do |c|
+  c.mock_with :rspec
+end
+
 require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
 

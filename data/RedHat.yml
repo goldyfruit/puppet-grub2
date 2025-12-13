@@ -1,7 +1,6 @@
 ---
 grub2::config_file: "/etc/default/grub"
 grub2::distributor: "$(sed 's, release .*$,,g' /etc/system-release)"
-grub2::install_binary: "/usr/sbin/grub2-install"
 grub2::package_name:
   - "grub2"
   - "grub2-tools"

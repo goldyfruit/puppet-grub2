@@ -1,3 +1,15 @@
+lookup_options:
+  grub2::device_install:
+    merge: unique
+  grub2::package_name:
+    merge: unique
+  grub2::package_name_legacy:
+    merge: first
+  grub2::preload_modules:
+    merge: first
+  grub2::cmdline_linux:
+    merge: first
+
 ---
 grub2::background_image: ""
 grub2::badram: ""

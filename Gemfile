@@ -22,6 +22,8 @@ end
 
 ruby_version_segments = Gem::Version.new(RUBY_VERSION.dup).segments
 minor_version = ruby_version_segments[0..1].join('.')
+# Fallback to the latest available PDK support packages when running on newer Ruby
+minor_version = '2.7' if Gem::Version.new(minor_version) >= Gem::Version.new('3.0')
 
 group :development do
   gem "fast_gettext", '1.1.0',                         require: false if Gem::Version.new(RUBY_VERSION.dup) < Gem::Version.new('2.1.0')
@@ -35,7 +37,11 @@ group :development do
   gem "puppet-module-win-dev-r#{minor_version}",       require: false, platforms: [:mswin, :mingw, :x64_mingw]
 end
 
-puppet_version = ENV['PUPPET_GEM_VERSION']
+group :system_tests do
+  gem 'puppet_litmus', '~> 1.0', require: false
+end
+
+puppet_version = ENV['PUPPET_GEM_VERSION'] || '~> 8.0'
 puppet_type = gem_type(puppet_version)
 facter_version = ENV['FACTER_GEM_VERSION']
 hiera_version = ENV['HIERA_GEM_VERSION']

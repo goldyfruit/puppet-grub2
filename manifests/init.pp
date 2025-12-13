@@ -1,154 +1,46 @@
-# == Class: grub2
-#
-# This module manages GRUB 2 bootloader
-#
-# === Parameters
-#
-# [*background_image*]
-#   Specify a path to a background image
-#   STRING : Empty by default
-#
-# [*badram*]
-#   Define some memory addresses for BadRAM filtering
-#   STRING : Empty by default
-#
-# [*enable_blscfg*]
-#   Define if BootLoaderSpec configuration should be used
-#   BOOL : False
-#
-# [*config_template*]
-#   Template used for GRUB config file
-#   STRING : 'grub2/default_grub.erb'
-#
-# [*cmdline_linux*]
-#   Arguments passed to the kernel
-#   STRING : Empty by default
-#
-# [*cmdline_linux_default*]
-#   Arguments passed to the kernel
-#   STRING : 'quiet'
-#
-# [*cmdline_linux_recovery*]
-#   Arguments passed to the kernel
-#   STRING : Empty by default
-#
-# [*cmdline_xen*]
-#   Arguments passed to Xen
-#   STRING : Empty by default
-#
-# [*default_entry*]
-#   Define on which kernel the system will boot
-#   INTEGER : 0
-#
-# [*device_install*]
-#   Define on which hard drive the MBR will be write
-#   ARRAY : Empty by default
-#
-# [*disable_uuid*]
-#   Define if GRUB should use the UUID in the root= path
-#   BOOL : false
-#
-# [*disable_os_prober*]
-#   Define if GRUB should add the results of os-prober to the menu
-#   BOOL : false
-#
-# [*disable_recovery*]
-#   Define if GRUB should display the recovery entry in the menu
-#   BOOL : false
-#
-# [*disable_submenu*]
-#   Define if GRUB should use the submenu
-#   BOOL : false
-#
-# [*enable_cryptodisk*]
-#   Define if GRUB should check for encrypted disks and generate additional
-#   commands needed to access them during boot
-#   BOOL : false
-#
-# [*gfxmode*]
-#   Define which resolution should be used if VBE is used
-#   STRING : Empty by default
-#
-# [*hidden_timeout*]
-#   Define how long (in seconds) grub should wait for a user to enter the menu
-#   STRING : undef
-#
-# [*hidden_timeout_quiet*]
-#   Define if the hidden timeout is quiet or not
-#   BOOL : false
-#
-# [*install_binary*]
-#   Path to GRUB installation command
-#   ABSOLUTE_PATH : Value depends on Linux distribution
-#
-# [*update_binary*]
-#   Path to GRUB configuration file update command
-#   ABSOLUTE_PATH : Value depends on Linux distribution
-#
-# [*install_grub*]
-#   Install the GRUB packages and install GRUB in the MBR
-#   BOOL : false
-#
-# [*remove_grub_legacy*]
-#   Ensure the GRUB legacy is not installed
-#   BOOL : false
-#
-# [*package_ensure*]
-#   Puppet stuff, define in which state should be the GRUB packages
-#   STRING : 'present'
-#
-# [*password*]
-#   Enable password to protect the GRUB configuration
-#   BOOL : false
-#
-# [*password_username*]
-#   Super user allowed to edit the GRUB configuration
-#   STRING : 'present'
-#
-# [*password_pbkdf2_hash*]
-#   Password hash generated via grub-mkpasswd-pbkdf2 or grub2-mkpasswd-pbkdf2 commands
-#   STRING : 'present'
-#
-# ['preload_modules']
-#   Preload additional modules
-#   STRING : Empty by default
-#
-# [*recordfail_timeout*]
-#   Set default timeout value for GRUB.
-#   Without this set, headless machines may stall during boot
-#   INTEGER : 5
-#
-# [*save_default*]
-#   Save the last selected entry as the new default one
-#   BOOL : false
-#
-# [*serial_command*]
-#   Set settings for the serial console
-#   STRING : Empty by default
-#
-# [*suse_btrfs_snapshot_booting*]
-#   Whether the root disk is a btrfs snapshot or not
-#   BOOL : false
-#
-# [*terminal*]
-#   Define on which terminal the ouput should be display
-#   STRING : Empty by default
-#
-# [*timeout*]
-#   Define how long (in seconds) that the menu should appear
-#   INTEGER : 5
-#
-# [*timeout_style*]
-#   Define what to display while waiting for timeout to expire
-#   STRING : 'countdown'
-#
-# [*tune*]
-#   Define if GRUB should make a beep when he starts
-#   STRING : Empty by default
-#
-# [*update_grub*]
-#   Regenerate the GRUB configuration after updates
-#   BOOL : true
+# @summary Manage GRUB 2 bootloader defaults and configuration across multiple Linux families.
+# @param background_image Path to a background image.
+# @param badram BadRAM filtering string.
+# @param enable_blscfg Enable BootLoaderSpec configuration.
+# @param cmdline_linux Kernel command line (always set).
+# @param cmdline_linux_default Kernel command line for normal boot entries.
+# @param cmdline_linux_recovery Kernel command line for recovery entries.
+# @param cmdline_xen Xen hypervisor command line.
+# @param config_file Absolute path to the defaults file.
+# @param config_template Template used for the defaults file.
+# @param default_entry GRUB default entry index/name.
+# @param device_install Devices to install GRUB to (MBR/EFI).
+# @param disable_os_prober Disable OS prober integration.
+# @param disable_recovery Hide recovery entries.
+# @param disable_submenu Disable submenu creation.
+# @param disable_uuid Disable UUID usage in root=.
+# @param distributor Distributor string for GRUB menus.
+# @param enable_cryptodisk Enable cryptodisk support.
+# @param gfxmode Video mode.
+# @param hidden_timeout Deprecated hidden timeout seconds.
+# @param hidden_timeout_quiet Deprecated hidden timeout quiet flag.
+# @param install_binary Path to grub install binary (bios/efi).
+# @param install_grub Whether to manage packages and run install.
+# @param remove_grub_legacy Ensure legacy GRUB is absent.
+# @param package_ensure Package ensure state.
+# @param package_name Package names for GRUB2.
+# @param package_name_legacy Legacy package name.
+# @param password Enable GRUB superuser password.
+# @param password_file Path to password fragment file.
+# @param password_template Template for password fragment.
+# @param password_username GRUB superuser name.
+# @param password_pbkdf2_hash PBKDF2 hash for GRUB password.
+# @param preload_modules Modules to preload.
+# @param recordfail_timeout Timeout for recordfail.
+# @param save_default Persist last booted entry as default.
+# @param serial_command Serial console definition.
+# @param suse_btrfs_snapshot_booting Enable SUSE btrfs snapshot booting.
+# @param terminal Terminal list (e.g. serial console).
+# @param timeout Menu timeout seconds.
+# @param timeout_style Timeout style (e.g. countdown).
+# @param tune Beep tune string.
+# @param update_binary Path to grub-mkconfig/grub2-mkconfig.
+# @param update_grub Whether to regenerate grub.cfg on changes.
 #
 # === Example
 #
@@ -200,7 +92,7 @@ class grub2 (
   Stdlib::Absolutepath $config_file                 = $grub2::params::config_file,
   String $config_template                           = $grub2::params::config_template,
   String $default_entry                             = $grub2::params::default_entry,
-  Array $device_install                             = $grub2::params::device_install,
+  Array[Stdlib::Absolutepath] $device_install       = $grub2::params::device_install,
   Boolean $disable_os_prober                        = $grub2::params::disable_os_prober,
   Boolean $disable_recovery                         = $grub2::params::disable_recovery,
   Boolean $disable_submenu                          = $grub2::params::disable_submenu,
@@ -210,17 +102,18 @@ class grub2 (
   String $gfxmode                                   = $grub2::params::gfxmode,
   Optional[String] $hidden_timeout                  = $grub2::params::hidden_timeout,
   Optional[Boolean] $hidden_timeout_quiet           = $grub2::params::hidden_timeout_quiet,
-  Stdlib::Absolutepath $install_binary              = $grub2::params::install_binary,
+  String $install_binary                            = $grub2::params::install_binary,
   Boolean $install_grub                             = $grub2::params::install_grub,
   Boolean $remove_grub_legacy                       = $grub2::params::remove_grub_legacy,
   String $package_ensure                            = $grub2::params::package_ensure,
-  Array $package_name                               = $grub2::params::package_name,
+  Array[String] $package_name                       = $grub2::params::package_name,
   Optional[String] $package_name_legacy             = $grub2::params::package_name_legacy,
   Boolean $password                                 = $grub2::params::password,
   Stdlib::Absolutepath $password_file               = $grub2::params::password_file,
+  String $password_template                         = $grub2::params::password_template,
   String $password_username                         = $grub2::params::password_username,
   String $password_pbkdf2_hash                      = $grub2::params::password_pbkdf2_hash,
-  String $preload_modules                           = $grub2::params::preload_modules,
+  Variant[String, Array[String]] $preload_modules   = $grub2::params::preload_modules,
   Integer $recordfail_timeout                       = $grub2::params::recordfail_timeout,
   Boolean $save_default                             = $grub2::params::save_default,
   String $serial_command                            = $grub2::params::serial_command,
@@ -229,20 +122,72 @@ class grub2 (
   Integer $timeout                                  = $grub2::params::timeout,
   String $timeout_style                             = $grub2::params::timeout_style,
   String $tune                                      = $grub2::params::tune,
-  Stdlib::Absolutepath $update_binary               = $grub2::params::update_binary,
+  String $update_binary                             = $grub2::params::update_binary,
   Boolean $update_grub                              = $grub2::params::update_grub,
 ) inherits grub2::params {
   # Warn if timeout_style and either of the hidden_timout values are set, and respect old syntax
-  if defined('$timeout_style') and ( $hidden_timeout_quiet =~ Boolean or $hidden_timeout =~ String) {
-    notify { 'Newer timeout_style and at least one of deprecated hidden_timeout(_quiet)? defined at the same time. You should fix this.': }
-    $timeout_style_disable = true
+  $timeout_style_disable = if ($hidden_timeout_quiet =~ Boolean or $hidden_timeout =~ String) {
+    warning('Newer timeout_style and at least one of deprecated hidden_timeout(_quiet)? defined at the same time. You should fix this.')
+    true
   } else {
-    $timeout_style_disable = false
+    false
+  }
+
+  $preload_modules_string = $preload_modules ? {
+    Array  => join($preload_modules, ' '),
+    default => $preload_modules,
   }
 
   anchor { 'grub2::begin': }
-  -> class { 'grub2::install': }
-  ~> class { 'grub2::config': }
-  -> class { 'grub2::update': }
+  -> class { 'grub2::install':
+    device_install      => $device_install,
+    install_grub        => $install_grub,
+    install_binary      => $install_binary,
+    package_ensure      => $package_ensure,
+    package_name        => $package_name,
+    remove_grub_legacy  => $remove_grub_legacy,
+    package_name_legacy => $package_name_legacy,
+  }
+  ~> class { 'grub2::config':
+    config_file                 => $config_file,
+    config_template             => $config_template,
+    password                    => $password,
+    password_file               => $password_file,
+    password_template           => $password_template,
+    default_entry               => $default_entry,
+    timeout_style               => $timeout_style,
+    timeout_style_disable       => $timeout_style_disable,
+    timeout                     => $timeout,
+    hidden_timeout              => $hidden_timeout,
+    hidden_timeout_quiet        => $hidden_timeout_quiet,
+    distributor                 => $distributor,
+    cmdline_linux_default       => $cmdline_linux_default,
+    cmdline_linux_recovery      => $cmdline_linux_recovery,
+    cmdline_linux               => $cmdline_linux,
+    recordfail_timeout          => $recordfail_timeout,
+    badram                      => $badram,
+    terminal                    => $terminal,
+    serial_command              => $serial_command,
+    gfxmode                     => $gfxmode,
+    disable_uuid                => $disable_uuid,
+    disable_recovery            => $disable_recovery,
+    disable_submenu             => $disable_submenu,
+    enable_cryptodisk           => $enable_cryptodisk,
+    tune                        => $tune,
+    cmdline_xen                 => $cmdline_xen,
+    disable_os_prober           => $disable_os_prober,
+    suse_btrfs_snapshot_booting => $suse_btrfs_snapshot_booting,
+    save_default                => $save_default,
+    background_image            => $background_image,
+    preload_modules             => $preload_modules_string,
+    enable_blscfg               => $enable_blscfg,
+  }
+  -> class { 'grub2::update':
+    password      => $password,
+    config_file   => $config_file,
+    password_file => $password_file,
+    update_grub   => $update_grub,
+    update_binary => $update_binary,
+  }
   anchor { 'grub2::end': }
 }

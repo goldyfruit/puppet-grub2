@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      forge_api_key:
+        description: 'Puppet Forge API key'
+        required: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install gems
+        run: |
+          bundle config set without 'system_tests'
+          bundle install --jobs 4
+      - name: Lint and spec
+        run: |
+          bundle exec rake lint
+          bundle exec rake metadata_lint
+          bundle exec rake spec
+      - name: Build module package
+        run: bundle exec rake module:package
+      - name: Publish to Forge (optional)
+        if: ${{ github.event.inputs.forge_api_key != '' }}
+        env:
+          BLACKSMITH_FORGE_API_KEY: ${{ github.event.inputs.forge_api_key }}
+        run: bundle exec rake module:push

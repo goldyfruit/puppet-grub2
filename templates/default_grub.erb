@@ -101,7 +101,7 @@ GRUB_SAVEDEFAULT="<%= @save_default %>"
 
 # Set a background image
 # Image must respect various specifications
-<% if @background_image -%>
+<% unless @background_image.empty? -%>
 GRUB_BACKGROUND="<%= @background_image %>"
 <% end -%>
 

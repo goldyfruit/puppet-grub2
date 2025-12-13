@@ -1,8 +1,7 @@
 ---
 grub2::config_file: "/etc/default/grub"
 grub2::distributor: "$(lsb_release -i -r -s 2> /dev/null || echo Archlinux)"
-grub2::install_binary: "/usr/bin/grub-install"
 grub2::package_name:
   - "grub"
 grub2::package_name_legacy: ~
-grub2::update_binary: "/usr/bin/grub-mkconfig -o /boot/grub2/grub.cfg"
+grub2::update_binary: "/usr/bin/grub-mkconfig -o /boot/grub/grub.cfg"

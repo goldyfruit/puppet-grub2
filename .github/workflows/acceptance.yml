@@ -1,0 +1,42 @@
+name: Acceptance (Litmus)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - litmusimage/debian:12
+          - litmusimage/rockylinux:9
+          - litmusimage/ubuntu:24.04
+    env:
+      BUNDLE_WITHOUT: ''
+      BUNDLE_PATH: vendor/bundle
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install gems
+        run: |
+          bundle config set without ''
+          bundle install --jobs 4
+      - name: Provision ${{ matrix.image }}
+        run: bundle exec rake "litmus:provision[docker,${{ matrix.image }}]"
+      - name: Install agent
+        run: bundle exec rake litmus:install_agent
+      - name: Install module
+        run: bundle exec rake litmus:install_module
+      - name: Run acceptance tests
+        run: bundle exec rake litmus:acceptance:parallel
+      - name: Tear down
+        if: always()
+        run: bundle exec rake litmus:tear_down

@@ -1,16 +1,28 @@
-# class: grub2::update: See README for documentation
-class grub2::update inherits grub2 {
-  if $grub2::password {
-    $exec_subscribe = [File[$grub2::config_file], File[$grub2::password_file],]
+# @summary Trigger grub.cfg regeneration when configuration changes.
+# @param password Whether password management is enabled.
+# @param config_file Path to defaults file.
+# @param password_file Path to password fragment file.
+# @param update_grub Whether to regenerate grub.cfg on changes.
+# @param update_binary Path to grub-mkconfig/grub2-mkconfig.
+class grub2::update (
+  Boolean $password,
+  Stdlib::Absolutepath $config_file,
+  Stdlib::Absolutepath $password_file,
+  Boolean $update_grub,
+  String $update_binary,
+) {
+  if $password {
+    $exec_subscribe = [File[$config_file], File[$password_file],]
   } else {
-    $exec_subscribe = File[$grub2::config_file]
+    $exec_subscribe = File[$config_file]
   }
 
-  if $grub2::update_grub {
+  if $update_grub {
     exec { 'Update GRUB':
-      command     => $grub2::update_binary,
+      command     => $update_binary,
       subscribe   => $exec_subscribe,
       refreshonly => true,
+      path        => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
     }
   }
 }

@@ -8,8 +8,8 @@ defaults:
 hierarchy:
   - name: "In module hierarchy"
     paths:
-      - "%{facts.os.name}-%{facts.os.release.major}.yaml"
-      - "%{facts.os.name}.yaml"
-      - "%{facts.os.family}-%{facts.os.release.major}.yaml"
-      - "%{facts.os.family}.yaml"
-      - "common.yaml"
+      - "%{facts.os.name}-%{facts.os.release.major}.yml"
+      - "%{facts.os.name}.yml"
+      - "%{facts.os.family}-%{facts.os.release.major}.yml"
+      - "%{facts.os.family}.yml"
+      - "common.yml"

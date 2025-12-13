@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [3.1, 3.2]
+        puppet_gem: ['~> 7.0', '~> 8.0']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Install gems
+        run: |
+          bundle config set without 'system_tests'
+          PUPPET_GEM_VERSION="${{ matrix.puppet_gem }}" bundle install --jobs 4
+      - name: Run lint
+        run: bundle exec rake lint
+      - name: Run metadata_lint
+        run: bundle exec rake metadata_lint
+      - name: Run specs
+        run: PUPPET_GEM_VERSION="${{ matrix.puppet_gem }}" bundle exec rake spec

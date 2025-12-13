@@ -1,31 +1,46 @@
 {
   "name": "goldyfruit-grub2",
-  "version": "1.0.17",
+  "version": "2.0.0",
   "author": "goldyfruit",
   "summary": "Puppet module for managing GRUB2",
   "license": "Apache-2.0",
-  "source": "git://github.com/goldyfruit/puppet-grub2.git",
+  "source": "https://github.com/goldyfruit/puppet-grub2",
   "project_page": "https://github.com/goldyfruit/puppet-grub2",
   "issues_url": "https://github.com/goldyfruit/puppet-grub2/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">=4.6.0 <9.0.0"
+      "version_requirement": ">=8.0.0 <10.0.0"
     },
     {
-      "name": "jcpunk-efi",
+      "name": "jcpunk/efi",
       "version_requirement": ">=0.1.0 <1.0.0"
     }
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "RedHat"
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": ["8", "9", "10"]
     },
     {
-      "operatingsystem": "Debian"
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": ["8", "9", "10"]
     },
     {
-      "operatingsystem": "Ubuntu"
+      "operatingsystem": "AlmaLinux",
+      "operatingsystemrelease": ["8", "9", "10"]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": ["43"]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": ["11", "12", "13"]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": ["24.04", "24.10", "25.04", "25.10"]
     },
     {
       "operatingsystem": "CentOS"
@@ -34,7 +49,12 @@
       "operatingsystem": "Gentoo"
     },
     {
-      "operatingsystem": "SLES"
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": ["15", "16"]
+    },
+    {
+      "operatingsystem": "OpenSuSE",
+      "operatingsystemrelease": ["15"]
     },
     {
       "operatingsystem": "Archlinux"
@@ -43,7 +63,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">=5.0.0 <7.0.0"
+      "version_requirement": ">=7.0.0 <9.0.0"
     }
   ],
   "tags": ["grub", "grub2", "bootloader", "system", "linux", "mbr", "uefi"],
