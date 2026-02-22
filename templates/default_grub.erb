@@ -85,9 +85,7 @@ GRUB_CMDLINE_XEN="<%= @cmdline_xen %>"
 <% else %>
 <% end -%>
 
-<% if @disable_os_prober -%>
 GRUB_DISABLE_OS_PROBER="<%= @disable_os_prober %>"
-<% end -%>
 
 <% if @suse_btrfs_snapshot_booting -%>
 SUSE_BTRFS_SNAPSHOT_BOOTING="<%= @suse_btrfs_snapshot_booting %>"
